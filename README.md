@@ -99,6 +99,64 @@ Both files and directories are accepted. Directories are searched recursively
 for `.sbgn` files. The Go CLI emits Markdown by default and can emit JSON with
 `--format json`.
 
+### Check one SBGN file
+
+Pass the file path to the installed binary and optionally save the Markdown
+report:
+
+```bash
+sbgn_layout_checker \
+  --output reports/single-file.md path/to/map.sbgn
+```
+
+Use `--format json` for machine-readable output, or add `--fail-on-error` when
+mandatory Chapter 4 violations should produce a nonzero exit status:
+
+```bash
+sbgn_layout_checker --format json --output reports/single-file.json \
+  --fail-on-error path/to/map.sbgn
+```
+
+When running from a source checkout without installing the binary, replace
+`sbgn_layout_checker` with `go run ./go/cmd/sbgn_layout_checker`.
+
+### Compare two SBGN files
+
+Pass a baseline first and a candidate second. When exactly two files are
+provided, the Markdown report includes a metric comparison table whose delta
+is `candidate - baseline`:
+
+```bash
+sbgn_layout_checker --output reports/comparison.md \
+  testdata/chapter4/4_4_edge_length_1.sbgn \
+  testdata/chapter4/4_4_edge_length_2.sbgn
+```
+
+That reproducible example generates this table:
+
+| Metric | Baseline | Candidate | Delta |
+|---|---:|---:|---:|
+| Requirement errors | 0 | 0 | +0 |
+| Recommendation warnings | 0 | 0 | +0 |
+| Glyphs | 4 | 4 | +0 |
+| Arcs | 3 | 3 | +0 |
+| Resolved arcs | 3 | 3 | +0 |
+| Arc crossings | 0 | 0 | +0 |
+| Arc-node crossings | 0 | 0 | +0 |
+| Total arc length | 560.20 | 660.20 | +100.00 |
+| Arc bends | 0 | 0 | +0 |
+| Minimum crossing angle (degrees) | n/a | n/a | n/a |
+| Drawing width | 610.00 | 710.00 | +100.00 |
+| Drawing height | 45.00 | 45.00 | +0.00 |
+
+Negative deltas mean fewer findings or a smaller measurement. For comparable
+layouts of the same map, fewer crossings and bends and shorter total arc length
+are generally improvements. Crossing angles closer to 90 degrees are preferred,
+so a positive angle delta can be an improvement. A crossing angle is shown as
+`n/a` when a layout has no proper edge-edge crossing. Changes to glyph, arc, or
+resolved-arc counts usually mean the inputs are not geometry-only variants and
+should be investigated before treating other deltas as a fair comparison.
+
 ## Metrics and findings
 
 The checker separates specification findings from descriptive metrics:

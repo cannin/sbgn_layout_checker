@@ -101,6 +101,9 @@ func MarkdownReport(reports []FileReport, command string) string {
 			report.Metrics.ArcCrossings, report.Metrics.ArcNodeCrossings,
 			errors, warnings)
 	}
+	if len(reports) == 2 {
+		writeMetricComparison(&builder, reports[0], reports[1])
+	}
 	for _, report := range reports {
 		if len(report.Findings) == 0 {
 			continue
@@ -116,6 +119,67 @@ func MarkdownReport(reports []FileReport, command string) string {
 		fmt.Fprintf(&builder, "\nReproduce with `%s`.\n", command)
 	}
 	return builder.String()
+}
+
+// writeMetricComparison appends baseline-to-candidate deltas for two reports.
+// Parameters: builder receives Markdown; baseline and candidate preserve input order.
+func writeMetricComparison(builder *strings.Builder, baseline FileReport, candidate FileReport) {
+	baselineErrors, baselineWarnings := findingCounts(baseline.Findings)
+	candidateErrors, candidateWarnings := findingCounts(candidate.Findings)
+	baselineMetrics := baseline.Metrics
+	candidateMetrics := candidate.Metrics
+
+	builder.WriteString("\n## Metric comparison\n\n")
+	fmt.Fprintf(builder, "Baseline: `%s`  \nCandidate: `%s`\n\n", baseline.Path, candidate.Path)
+	builder.WriteString("Delta is candidate minus baseline.\n\n")
+	builder.WriteString("| Metric | Baseline | Candidate | Delta |\n")
+	builder.WriteString("|---|---:|---:|---:|\n")
+	writeIntegerComparisonRow(builder, "Requirement errors", baselineErrors, candidateErrors)
+	writeIntegerComparisonRow(builder, "Recommendation warnings", baselineWarnings, candidateWarnings)
+	writeIntegerComparisonRow(builder, "Glyphs", baselineMetrics.Glyphs, candidateMetrics.Glyphs)
+	writeIntegerComparisonRow(builder, "Arcs", baselineMetrics.Arcs, candidateMetrics.Arcs)
+	writeIntegerComparisonRow(builder, "Resolved arcs", baselineMetrics.ResolvedArcs, candidateMetrics.ResolvedArcs)
+	writeIntegerComparisonRow(builder, "Arc crossings", baselineMetrics.ArcCrossings, candidateMetrics.ArcCrossings)
+	writeIntegerComparisonRow(builder, "Arc-node crossings", baselineMetrics.ArcNodeCrossings, candidateMetrics.ArcNodeCrossings)
+	writeFloatComparisonRow(builder, "Total arc length", baselineMetrics.TotalArcLength, candidateMetrics.TotalArcLength)
+	writeIntegerComparisonRow(builder, "Arc bends", baselineMetrics.ArcBends, candidateMetrics.ArcBends)
+	writeOptionalAngleComparisonRow(builder, baselineMetrics.MinimumCrossingAngle, candidateMetrics.MinimumCrossingAngle)
+	writeFloatComparisonRow(builder, "Drawing width", baselineMetrics.DrawingWidth, candidateMetrics.DrawingWidth)
+	writeFloatComparisonRow(builder, "Drawing height", baselineMetrics.DrawingHeight, candidateMetrics.DrawingHeight)
+}
+
+// writeIntegerComparisonRow appends one integer-valued metric row.
+// Parameters: builder receives Markdown; label names the metric; values are ordered baseline then candidate.
+func writeIntegerComparisonRow(builder *strings.Builder, label string, baseline int, candidate int) {
+	fmt.Fprintf(builder, "| %s | %d | %d | %+d |\n", label, baseline, candidate, candidate-baseline)
+}
+
+// writeFloatComparisonRow appends one floating-point metric row.
+// Parameters: builder receives Markdown; label names the metric; values are ordered baseline then candidate.
+func writeFloatComparisonRow(builder *strings.Builder, label string, baseline float64, candidate float64) {
+	fmt.Fprintf(builder, "| %s | %.2f | %.2f | %+.2f |\n", label, baseline, candidate, candidate-baseline)
+}
+
+// writeOptionalAngleComparisonRow appends crossing angles when both layouts have one.
+// Parameters: builder receives Markdown; values are ordered baseline then candidate.
+func writeOptionalAngleComparisonRow(builder *strings.Builder, baseline float64, candidate float64) {
+	if baseline == 0 || candidate == 0 {
+		builder.WriteString("| Minimum crossing angle (degrees) | ")
+		if baseline == 0 {
+			builder.WriteString("n/a")
+		} else {
+			fmt.Fprintf(builder, "%.2f", baseline)
+		}
+		builder.WriteString(" | ")
+		if candidate == 0 {
+			builder.WriteString("n/a")
+		} else {
+			fmt.Fprintf(builder, "%.2f", candidate)
+		}
+		builder.WriteString(" | n/a |\n")
+		return
+	}
+	writeFloatComparisonRow(builder, "Minimum crossing angle (degrees)", baseline, candidate)
 }
 
 // findingCounts counts mandatory errors and recommendation warnings.
