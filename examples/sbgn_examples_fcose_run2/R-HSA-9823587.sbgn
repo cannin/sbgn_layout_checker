@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="submap" id="entityVertex_9846298_8">
+            <label text="Defective binding of VWF variant to GPIb:IX:V" />
+            <bbox w="121.000000" h="59.000000" x="-135.500000" y="46.500000" />
+        </glyph>
+        <glyph class="submap" id="entityVertex_9845621_4">
+            <label text="Defective VWF cleavage by ADAMTS13 variant" />
+            <bbox w="125.000000" h="59.000000" x="7.500000" y="-105.500000" />
+        </glyph>
+        <glyph class="submap" id="entityVertex_9845619_6">
+            <label text="Enhanced cleavage of VWF variant by ADAMTS13" />
+            <bbox w="131.000000" h="59.000000" x="-135.500000" y="-22.500000" />
+        </glyph>
+        <glyph class="submap" id="entityVertex_9845620_7">
+            <label text="Enhanced binding of GP1BA variant to VWF multimer:collagen" />
+            <bbox w="133.000000" h="73.000000" x="-135.500000" y="-105.500000" />
+        </glyph>
+        <glyph class="submap" id="entityVertex_9845622_5">
+            <label text="Defective VWF binding to collagen type I" />
+            <bbox w="130.000000" h="59.000000" x="5.500000" y="-22.500000" />
+        </glyph>
+    </map>
+</sbgn>

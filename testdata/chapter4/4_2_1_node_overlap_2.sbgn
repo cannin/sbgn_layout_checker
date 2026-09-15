@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns:layout-test="https://github.com/cannin/sbgn_layout_checker/test" xmlns="http://sbgn.org/libsbgn/0.3">
+  <map id="4_2_1_node_overlap_2" language="process description">
+    <extension>
+      <layout-test:expectedViolation section="4.2.1" scenario="4_2_1_node_overlap" variant="2" checkerFinding="node_overlap" />
+    </extension>
+    <glyph id="a" class="macromolecule">
+      <label text="A">
+        <bbox x="15" y="26" w="10" h="8" />
+      </label>
+      <bbox x="10" y="20" w="20" h="20" />
+    </glyph>
+    <glyph id="p" class="process">
+      <bbox x="75.0" y="25" w="10" h="10" />
+      <port id="p.1" x="70.0" y="30" />
+      <port id="p.2" x="90.0" y="30" />
+    </glyph>
+    <glyph id="b" class="macromolecule">
+      <label text="B">
+        <bbox x="34.0" y="31" w="10" h="8" />
+      </label>
+      <bbox x="29.0" y="25" w="20" h="20" />
+    </glyph>
+    <glyph id="c" class="macromolecule">
+      <label text="C">
+        <bbox x="77.0" y="1" w="10" h="8" />
+      </label>
+      <bbox x="72.0" y="-5" w="20" h="20" />
+    </glyph>
+    <arc id="consume" class="consumption" source="a" target="p.1">
+      <start x="30" y="30" />
+      <end x="70.0" y="30" />
+    </arc>
+    <arc id="produce" class="production" source="p.2" target="b">
+      <start x="90.0" y="30" />
+      <end x="105.0" y="30" />
+    </arc>
+    <arc id="stimulate" class="stimulation" source="c" target="p">
+      <start x="82.0" y="15" />
+      <end x="80.0" y="25" />
+    </arc>
+  </map>
+</sbgn>

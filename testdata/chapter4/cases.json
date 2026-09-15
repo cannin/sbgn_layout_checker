@@ -1,0 +1,222 @@
+[
+  {
+    "path": "4_2_1_node_overlap_1.sbgn",
+    "section": "4.2.1",
+    "expected_kind": "node_overlap"
+  },
+  {
+    "path": "4_2_1_node_overlap_2.sbgn",
+    "section": "4.2.1",
+    "expected_kind": "node_overlap"
+  },
+  {
+    "path": "4_2_2_edge_z_order_1.sbgn",
+    "section": "4.2.2",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_2_2_edge_z_order_2.sbgn",
+    "section": "4.2.2",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_2_3_node_border_edge_overlap_1.sbgn",
+    "section": "4.2.3",
+    "expected_kind": "node_border_edge_overlap"
+  },
+  {
+    "path": "4_2_3_node_border_edge_overlap_2.sbgn",
+    "section": "4.2.3",
+    "expected_kind": "node_border_edge_overlap"
+  },
+  {
+    "path": "4_2_4_edge_overlap_1.sbgn",
+    "section": "4.2.4",
+    "expected_kind": "edge_edge_overlap_or_touch"
+  },
+  {
+    "path": "4_2_4_edge_overlap_2.sbgn",
+    "section": "4.2.4",
+    "expected_kind": "edge_edge_overlap_or_touch"
+  },
+  {
+    "path": "4_2_5_diagonal_orientation_1.sbgn",
+    "section": "4.2.5",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_2_5_diagonal_orientation_2.sbgn",
+    "section": "4.2.5",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_2_6_process_attachment_1.sbgn",
+    "section": "4.2.6",
+    "expected_kind": "process_flow_not_centered"
+  },
+  {
+    "path": "4_2_6_process_attachment_2.sbgn",
+    "section": "4.2.6",
+    "expected_kind": "process_flow_not_centered"
+  },
+  {
+    "path": "4_2_7_node_labels_1.sbgn",
+    "section": "4.2.7",
+    "expected_kind": "node_label_outside_node"
+  },
+  {
+    "path": "4_2_7_node_labels_2.sbgn",
+    "section": "4.2.7",
+    "expected_kind": "node_label_outside_node"
+  },
+  {
+    "path": "4_2_8_edge_labels_1.sbgn",
+    "section": "4.2.8",
+    "expected_kind": "edge_label_overlaps_node"
+  },
+  {
+    "path": "4_2_8_edge_labels_2.sbgn",
+    "section": "4.2.8",
+    "expected_kind": "edge_label_overlaps_node"
+  },
+  {
+    "path": "4_2_9_compartments_1.sbgn",
+    "section": "4.2.9",
+    "expected_kind": "process_outside_participant_compartment"
+  },
+  {
+    "path": "4_2_9_compartments_2.sbgn",
+    "section": "4.2.9",
+    "expected_kind": "process_outside_participant_compartment"
+  },
+  {
+    "path": "4_3_1_node_edge_crossing_1.sbgn",
+    "section": "4.3.1",
+    "expected_kind": "node_edge_crossing"
+  },
+  {
+    "path": "4_3_1_node_edge_crossing_2.sbgn",
+    "section": "4.3.1",
+    "expected_kind": "node_edge_crossing"
+  },
+  {
+    "path": "4_3_2_label_quality_1.sbgn",
+    "section": "4.3.2",
+    "expected_kind": "node_label_not_fully_inside"
+  },
+  {
+    "path": "4_3_2_label_quality_2.sbgn",
+    "section": "4.3.2",
+    "expected_kind": "node_label_not_fully_inside"
+  },
+  {
+    "path": "4_3_3_edge_crossings_1.sbgn",
+    "section": "4.3.3",
+    "expected_kind": "edge_crossing"
+  },
+  {
+    "path": "4_3_3_edge_crossings_2.sbgn",
+    "section": "4.3.3",
+    "expected_kind": "edge_crossing"
+  },
+  {
+    "path": "4_3_4_branch_proximity_1.sbgn",
+    "section": "4.3.4",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_3_4_branch_proximity_2.sbgn",
+    "section": "4.3.4",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_3_5_unit_information_1.sbgn",
+    "section": "4.3.5",
+    "expected_kind": "unit_of_information_overlap"
+  },
+  {
+    "path": "4_3_5_unit_information_2.sbgn",
+    "section": "4.3.5",
+    "expected_kind": "unit_of_information_overlap"
+  },
+  {
+    "path": "4_4_crossing_angle_1.sbgn",
+    "section": "4.4 crossing angle",
+    "expected_kind": "edge_crossing"
+  },
+  {
+    "path": "4_4_crossing_angle_2.sbgn",
+    "section": "4.4 crossing angle",
+    "expected_kind": "edge_crossing"
+  },
+  {
+    "path": "4_4_compactness_1.sbgn",
+    "section": "4.4 compactness",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_compactness_2.sbgn",
+    "section": "4.4 compactness",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_edge_length_1.sbgn",
+    "section": "4.4 edge length",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_edge_length_2.sbgn",
+    "section": "4.4 edge length",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_edge_bends_1.sbgn",
+    "section": "4.4 edge bends",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_edge_bends_2.sbgn",
+    "section": "4.4 edge bends",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_similarity_symmetry_1.sbgn",
+    "section": "4.4 similarity and symmetry",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_similarity_symmetry_2.sbgn",
+    "section": "4.4 similarity and symmetry",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_proximity_1.sbgn",
+    "section": "4.4 proximity",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_proximity_2.sbgn",
+    "section": "4.4 proximity",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_direction_1.sbgn",
+    "section": "4.4 direction",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_direction_2.sbgn",
+    "section": "4.4 direction",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_compartment_shading_1.sbgn",
+    "section": "4.4 compartment shading",
+    "expected_kind": ""
+  },
+  {
+    "path": "4_4_compartment_shading_2.sbgn",
+    "section": "4.4 compartment shading",
+    "expected_kind": ""
+  }
+]

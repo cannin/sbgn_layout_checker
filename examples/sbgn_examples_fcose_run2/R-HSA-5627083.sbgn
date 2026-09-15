@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="compartment" id="compartmentVertex_70101_1" compartmentOrder="10.0">
+            <label text="cytosol">
+                <bbox w="56.0" h="24.0" x="-256.671879" y="309.020012" />
+            </label>
+            <bbox w="129.949485" h="232.740922" x="13.853379" y="63.649551" />
+        </glyph>
+        <glyph class="compartment" id="compartmentVertex_161320_5" compartmentOrder="10.0">
+            <label text="lysosomal lumen">
+                <bbox w="129.0" h="24.0" x="189.841873" y="-76.487143" />
+            </label>
+            <bbox w="103.250000" h="55.250000" x="187.216873" y="-107.612143" />
+        </glyph>
+        <glyph class="compartment" id="compartmentVertex_13951_7" compartmentOrder="10.0">
+            <label text="Golgi-associated vesicle">
+                <bbox w="183.0" h="24.0" x="-235.680613" y="-116.102561" />
+            </label>
+            <bbox w="279.572520" h="275.575824" x="-290.466873" y="-296.390473" />
+        </glyph>
+        <glyph class="process" id="reactionVertex_5627071_21">
+            <label text="RHOQ positively regulates trafficking of GOPC:CFTR to the plasma membrane" />
+            <bbox w="12.000000" h="12.000000" x="18.853379" y="162.838522" />
+            <port id="reactionVertex_5627071.1" x="23.853379" y="178.838522" />
+            <port id="reactionVertex_5627071.2" x="25.853379" y="158.838522" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_5627084_22">
+            <label text="RHOQ:GTP:GOPC:CFTR" />
+            <bbox w="103.000000" h="35.000000" x="28.177864" y="248.765473" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_5627068_9">
+            <label text="RHOQ:GTP" />
+            <bbox w="72.000000" h="22.000000" x="-277.841873" y="-283.765473" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_5627082_3">
+            <label text="GOPC:CFTR" />
+            <bbox w="87.000000" h="30.000000" x="-110.519353" y="-142.319213" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_5627072_8">
+            <label text="RHOQ binds GOPC:CFTR" />
+            <bbox w="10.000000" h="10.000000" x="-209.253404" y="-174.857529" />
+            <port id="reactionVertex_5627072.1" x="-212.586734" y="-170.857529" />
+            <port id="reactionVertex_5627072.2" x="-195.920064" y="-139.857529" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_5627276_4">
+            <label text="GOPC:CFTR" />
+            <bbox w="78.000000" h="30.000000" x="199.841873" y="-94.987143" />
+        </glyph>
+        <glyph class="process" id="reactionVertex_5627275_2">
+            <label text="GOPC promotes translocation of CFTR to lysosomes" />
+            <bbox w="12.000000" h="12.000000" x="122.049578" y="68.649551" />
+            <port id="reactionVertex_5627275.1" x="118.049578" y="73.649551" />
+            <port id="reactionVertex_5627275.2" x="138.049578" y="75.649551" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_5627078_10">
+            <label text="RHOQ:GTP:GOPC:CFTR" />
+            <bbox w="113.000000" h="36.000000" x="-221.945380" y="-69.439649" />
+        </glyph>
+        <arc class="consumption" id="arc_3_input_2" source="entityVertex_5627082_3" target="reactionVertex_5627275.1">
+            <start x="-52.531796" y="-112.319213" />
+            <end x="118.049578" y="73.649551" />
+        </arc>
+        <arc class="stimulation" id="arc_10_activator_21" source="entityVertex_5627078_10" target="reactionVertex_5627071_21">
+            <start x="-149.895144" y="-33.439649" />
+            <end x="19.669967" y="162.838522" />
+        </arc>
+        <arc class="consumption" id="arc_3_input_8" source="entityVertex_5627082_3" target="reactionVertex_5627072.1">
+            <start x="-110.519353" y="-140.802869" />
+            <end x="-212.586734" y="-170.857529" />
+        </arc>
+        <arc class="production" id="arc_4_output_2" source="reactionVertex_5627275.2" target="entityVertex_5627276_4">
+            <start x="138.049578" y="75.649551" />
+            <end x="228.094848" y="-64.987143" />
+        </arc>
+        <arc class="stimulation" id="arc_3_activator_2" source="entityVertex_5627082_3" target="reactionVertex_5627275_2">
+            <start x="-52.531796" y="-112.319213" />
+            <end x="122.254555" y="68.649551" />
+        </arc>
+        <arc class="consumption" id="arc_9_input_8" source="entityVertex_5627068_9" target="reactionVertex_5627072.1">
+            <start x="-237.823980" y="-261.765473" />
+            <end x="-212.586734" y="-170.857529" />
+        </arc>
+        <arc class="consumption" id="arc_10_input_21" source="entityVertex_5627078_10" target="reactionVertex_5627071.1">
+            <start x="-149.895144" y="-33.439649" />
+            <end x="23.853379" y="178.838522" />
+        </arc>
+        <arc class="production" id="arc_22_output_21" source="reactionVertex_5627071.2" target="entityVertex_5627084_22">
+            <start x="25.853379" y="158.838522" />
+            <end x="69.830193" y="248.765473" />
+        </arc>
+        <arc class="production" id="arc_10_output_8" source="reactionVertex_5627072.2" target="entityVertex_5627078_10">
+            <start x="-195.920064" y="-139.857529" />
+            <end x="-171.344358" y="-69.439649" />
+        </arc>
+    </map>
+</sbgn>

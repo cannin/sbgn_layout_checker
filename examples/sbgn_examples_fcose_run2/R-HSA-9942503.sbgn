@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="compartment" id="compartmentVertex_70101_1" compartmentOrder="10.0">
+            <label text="cytosol">
+                <bbox w="56.0" h="24.0" x="20.0" y="934.0" />
+            </label>
+            <bbox w="1122.000000" h="985.000000" x="0.000000" y="0.000000" />
+        </glyph>
+        <glyph class="compartment" id="compartmentVertex_7660_2" compartmentOrder="10.0">
+            <label text="nucleoplasm">
+                <bbox w="97.0" h="24.0" x="-406.749274" y="345.312145" />
+            </label>
+            <bbox w="1102.533408" h="1371.077560" x="-465.515978" y="-689.726634" />
+        </glyph>
+        <glyph class="compartment" id="compartmentVertex_17963_53" compartmentOrder="10.0">
+            <label text="Golgi lumen">
+                <bbox w="90.0" h="24.0" x="-745.863623" y="-664.024922" />
+            </label>
+            <bbox w="62.000000" h="31.000000" x="-701.363623" y="-668.024922" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942937_33">
+            <label text="TBX21:CXCR3 gene" />
+            <bbox w="150.000000" h="31.000000" x="-370.943164" y="46.710529" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942924_43">
+            <label text="TBX21 binds the C-C motif chemokine 3 (CCL3) gene" />
+            <bbox w="10.000000" h="10.000000" x="-89.219829" y="130.308089" />
+            <port id="reactionVertex_9942924.1" x="-92.553129" y="106.308089" />
+            <port id="reactionVertex_9942924.2" x="-75.886529" y="165.308089" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_8980965_6">
+            <label text="TBX21 gene" />
+            <bbox w="103.000000" h="52.000000" x="236.417989" y="-88.002472" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_9943832_37">
+            <label text="CXCR3" />
+            <bbox w="87.000000" h="35.000000" x="-800.167862" y="434.618592" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_8950759_19">
+            <label text="p-Y693-STAT4 dimer" />
+            <bbox w="160.000000" h="29.000000" x="464.392430" y="-12.331750" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9945887_67">
+            <label text="TBX21:RUNX3:IL4 gene" />
+            <bbox w="151.000000" h="27.000000" x="-452.890978" y="-101.423539" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_9942502_11">
+            <label text="TBX21" />
+            <bbox w="127.000000" h="31.000000" x="-98.841500" y="-66.344928" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_8958138_54">
+            <label text="IL12RB2 gene" />
+            <bbox w="90.000000" h="52.000000" x="167.638144" y="53.961812" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_8877362_56">
+            <label text="IFNG gene" />
+            <bbox w="87.000000" h="52.000000" x="-252.111259" y="-227.928477" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942715_9">
+            <label text="p-STAT1:NFATC1:TBX21 gene" />
+            <bbox w="118.000000" h="45.000000" x="286.270092" y="-159.468847" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942698_13">
+            <label text="TBX21 binds the IL12RB2 gene" />
+            <bbox w="10.000000" h="10.000000" x="188.903388" y="-46.349395" />
+            <port id="reactionVertex_9942698.1" x="185.570088" y="-41.349395" />
+            <port id="reactionVertex_9942698.2" x="202.236688" y="-41.349395" />
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942734_16">
+            <label text="TBX21 positively regulates expression of IL12RB2" />
+            <bbox w="12.000000" h="12.000000" x="342.278061" y="96.164989" />
+            <port id="reactionVertex_9942734.1" x="338.278061" y="92.164989" />
+            <port id="reactionVertex_9942734.2" x="358.278061" y="100.164989" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_8954250_62">
+            <label text="TPST2" />
+            <bbox w="60.000000" h="29.000000" x="-700.363623" y="-667.024922" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_2025935_8">
+            <label text="p-S257-NFATC1" />
+            <bbox w="117.000000" h="31.000000" x="418.570211" y="55.175941" />
+            <glyph class="unit of information" id="entityVertex_2025868_1_mt">
+                <label text="P" />
+                <bbox w="10.000000" h="16.000000" x="428.570211" y="49.175941" />
+            </glyph>
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942928_51">
+            <label text="TBX21 positively regulates expression of Protein-tyrosine sulfotransferase 2 (TPST2)" />
+            <bbox w="12.000000" h="12.000000" x="43.434949" y="-392.961205" />
+            <port id="reactionVertex_9942928.1" x="39.434949" y="-507.961205" />
+            <port id="reactionVertex_9942928.2" x="59.434949" y="-141.961205" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_8865393_57">
+            <label text="RUNX3" />
+            <bbox w="76.000000" h="35.000000" x="-329.170111" y="-160.728905" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_873824_7">
+            <label text="p-STAT1 homodimer" />
+            <bbox w="96.000000" h="39.000000" x="477.142326" y="-116.912263" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_6785014_61">
+            <label text="CCL3 gene" />
+            <bbox w="71.000000" h="52.000000" x="11.025795" y="181.973075" />
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942917_46">
+            <label text="TBX21 positively regulates expression of C-C motif chemokine 3 (CCL3)" />
+            <bbox w="12.000000" h="12.000000" x="-25.280012" y="484.350925" />
+            <port id="reactionVertex_9942917.1" x="-29.280012" y="327.350925" />
+            <port id="reactionVertex_9942917.2" x="-9.280012" y="707.350925" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942723_20">
+            <label text="TBX21 and RUNX3 bind the IFNG gene" />
+            <bbox w="10.000000" h="10.000000" x="-156.889197" y="-102.186663" />
+            <port id="reactionVertex_9942723.1" x="-152.889197" y="-88.853363" />
+            <port id="reactionVertex_9942723.2" x="-151.889197" y="-105.519963" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942925_45">
+            <label text="TBX21:CCL3 gene" />
+            <bbox w="123.000000" h="28.000000" x="-146.409285" y="222.505631" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942511_18">
+            <label text="STAT4 binds the TBX21 (T-bet) gene" />
+            <bbox w="10.000000" h="10.000000" x="361.407619" y="-44.129427" />
+            <port id="reactionVertex_9942511.1" x="368.407619" y="-30.796087" />
+            <port id="reactionVertex_9942511.2" x="365.407619" y="-47.462757" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_8865295_58">
+            <label text="RUNX1" />
+            <bbox w="74.000000" h="34.000000" x="46.041668" y="39.302511" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9942932_49">
+            <label text="TPST2 gene" />
+            <bbox w="98.000000" h="66.000000" x="15.202811" y="-688.726634" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942724_30">
+            <label text="TBX21:RUNX1" />
+            <bbox w="111.000000" h="28.000000" x="-61.821840" y="77.798045" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942500_12">
+            <label text="p-Y693-STAT4 dimer:p-STAT1 dimer:NFATC1:TBX21 gene" />
+            <bbox w="196.000000" h="39.000000" x="47.573468" y="-15.447437" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_66220_60">
+            <label text="TNF(1-233)" />
+            <bbox w="97.000000" h="35.000000" x="-665.844568" y="541.932552" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942755_15">
+            <label text="TBX21:IL12RB2 gene" />
+            <bbox w="125.000000" h="45.000000" x="281.288155" y="-0.860238" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942935_40">
+            <label text="TBX21:TNF gene" />
+            <bbox w="126.000000" h="28.000000" x="-371.337460" y="123.541022" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_447249_55">
+            <label text="IL12RB2" />
+            <bbox w="71.000000" h="32.000000" x="760.383698" y="-308.830370" />
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942923_41">
+            <label text="TBX21 positively regulates expression of Tumor necrosis factor (TNF)" />
+            <bbox w="12.000000" h="12.000000" x="-181.586062" y="126.164423" />
+            <port id="reactionVertex_9942923.1" x="-175.586062" y="142.164423" />
+            <port id="reactionVertex_9942923.2" x="-175.586062" y="122.164423" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942910_38">
+            <label text="TBX21 binds the Tumor necrosis factor (TNF) gene" />
+            <bbox w="10.000000" h="10.000000" x="-158.855653" y="51.183358" />
+            <port id="reactionVertex_9942910.1" x="-162.188953" y="23.183358" />
+            <port id="reactionVertex_9942910.2" x="-145.522353" y="95.183358" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942930_31">
+            <label text="TBX21 binds the C-X-C chemokine receptor type 3 (CXCR3) gene" />
+            <bbox w="10.000000" h="10.000000" x="-173.622512" y="-16.157839" />
+            <port id="reactionVertex_9942930.1" x="-167.622512" y="-2.824539" />
+            <port id="reactionVertex_9942930.2" x="-166.622512" y="-19.491139" />
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942709_26">
+            <label text="TBX21 and RUNX3 positively regulate expression of IFNG" />
+            <bbox w="12.000000" h="12.000000" x="-186.357612" y="-287.335725" />
+            <port id="reactionVertex_9942709.1" x="-194.357612" y="-271.335725" />
+            <port id="reactionVertex_9942709.2" x="-184.357612" y="-291.335725" />
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942931_36">
+            <label text="TBX21 positively regulates expression of C-X-C chemokine receptor type 3 (CXCR3)" />
+            <bbox w="12.000000" h="12.000000" x="-396.505570" y="-5.492211" />
+            <port id="reactionVertex_9942931.1" x="-393.505570" y="10.507789" />
+            <port id="reactionVertex_9942931.2" x="-397.505570" y="-9.492211" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942683_5">
+            <label text="p-STAT1 and NFATC1 bind the TBX21 gene" />
+            <bbox w="10.000000" h="10.000000" x="413.385840" y="-36.985092" />
+            <port id="reactionVertex_9942683.1" x="417.385840" y="-23.651762" />
+            <port id="reactionVertex_9942683.2" x="418.385840" y="-40.318422" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9942247_66">
+            <label text="IL4 gene" />
+            <bbox w="70.000000" h="54.000000" x="-243.576101" y="-155.187064" />
+        </glyph>
+        <glyph class="complex" id="entityVertex_9942697_23">
+            <label text="TBX21:RUNX3:IFNG gene" />
+            <bbox w="114.000000" h="41.000000" x="-135.474678" y="-181.094793" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9942921_32">
+            <label text="CXCR3 gene" />
+            <bbox w="103.000000" h="66.000000" x="-330.393405" y="-49.862489" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9942757_28">
+            <label text="TBX21 binds RUNX1" />
+            <bbox w="10.000000" h="10.000000" x="-13.931159" y="7.342913" />
+            <port id="reactionVertex_9942757.1" x="-17.264489" y="12.342913" />
+            <port id="reactionVertex_9942757.2" x="-0.597819" y="12.342913" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_629621_27">
+            <label text="IFNG" />
+            <bbox w="59.000000" h="34.000000" x="-595.687703" y="-779.681933" />
+        </glyph>
+        <glyph class="omitted process" id="reactionVertex_9942499_10">
+            <label text="STAT proteins and NFATC1 positively regulate expression of TBX21 during differentiation of T helper 1 cells (Th1 cells)" />
+            <bbox w="12.000000" h="12.000000" x="122.341522" y="-133.495068" />
+            <port id="reactionVertex_9942499.1" x="118.341522" y="-165.495068" />
+            <port id="reactionVertex_9942499.2" x="138.341522" y="-44.495068" />
+        </glyph>
+        <glyph class="macromolecule" id="entityVertex_443989_47">
+            <label text="CCL3(24-92)" />
+            <bbox w="98.000000" h="34.000000" x="-831.383698" y="745.681933" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_6785015_59">
+            <label text="TNF gene" />
+            <bbox w="65.000000" h="52.000000" x="-246.010229" y="169.400486" />
+        </glyph>
+        <glyph class="association" id="reactionVertex_9945877_65">
+            <label text="TBX21 and RUNX3 bind the IL4 gene" />
+            <bbox w="10.000000" h="10.000000" x="-205.103041" y="-68.629070" />
+            <port id="reactionVertex_9945877.1" x="-208.436381" y="-63.629070" />
+            <port id="reactionVertex_9945877.2" x="-191.769701" y="-64.629070" />
+        </glyph>
+        <arc class="consumption" id="arc_11_input_65" source="entityVertex_9942502_11" target="reactionVertex_9945877.1">
+            <start x="-98.841500" y="-55.772006" />
+            <end x="-208.436381" y="-63.629070" />
+        </arc>
+        <arc class="stimulation" id="arc_12_activator_10" source="entityVertex_9942500_12" target="reactionVertex_9942499_10">
+            <start x="143.019086" y="-15.447437" />
+            <end x="129.127486" y="-121.495068" />
+        </arc>
+        <arc class="production" id="arc_67_output_65" source="reactionVertex_9945877.2" target="entityVertex_9945887_67">
+            <start x="-191.769701" y="-64.629070" />
+            <end x="-301.890978" y="-77.577475" />
+        </arc>
+        <arc class="consumption" id="arc_32_input_31" source="entityVertex_9942921_32" target="reactionVertex_9942930.1">
+            <start x="-227.560430" y="-14.206878" />
+            <end x="-167.622512" y="-2.824539" />
+        </arc>
+        <arc class="consumption" id="arc_11_input_38" source="entityVertex_9942502_11" target="reactionVertex_9942910.1">
+            <start x="-52.504901" y="-35.344928" />
+            <end x="-162.188953" y="23.183358" />
+        </arc>
+        <arc class="consumption" id="arc_54_input_16" source="entityVertex_8958138_54" target="reactionVertex_9942734.1">
+            <start x="255.934075" y="87.049012" />
+            <end x="338.278061" y="92.164989" />
+        </arc>
+        <arc class="consumption" id="arc_19_input_18" source="entityVertex_8950759_19" target="reactionVertex_9942511.1">
+            <start x="481.900301" y="-12.331750" />
+            <end x="368.407619" y="-30.796087" />
+        </arc>
+        <arc class="consumption" id="arc_7_input_5" source="entityVertex_873824_7" target="reactionVertex_9942683.1">
+            <start x="493.324482" y="-77.912263" />
+            <end x="417.385840" y="-23.651762" />
+        </arc>
+        <arc class="consumption" id="arc_59_input_41" source="entityVertex_6785015_59" target="reactionVertex_9942923.1">
+            <start x="-199.451734" y="171.958866" />
+            <end x="-175.586062" y="142.164423" />
+        </arc>
+        <arc class="production" id="arc_33_output_31" source="reactionVertex_9942930.2" target="entityVertex_9942937_33">
+            <start x="-166.622512" y="-19.491139" />
+            <end x="-269.045058" y="46.710529" />
+        </arc>
+        <arc class="consumption" id="arc_11_input_13" source="entityVertex_9942502_11" target="reactionVertex_9942698.1">
+            <start x="28.158500" y="-48.214700" />
+            <end x="185.570088" y="-41.349395" />
+        </arc>
+        <arc class="consumption" id="arc_59_input_38" source="entityVertex_6785015_59" target="reactionVertex_9942910.1">
+            <start x="-202.971255" y="170.805462" />
+            <end x="-162.188953" y="23.183358" />
+        </arc>
+        <arc class="consumption" id="arc_11_input_28" source="entityVertex_9942502_11" target="reactionVertex_9942757.1">
+            <start x="-28.863034" y="-35.344928" />
+            <end x="-17.264489" y="12.342913" />
+        </arc>
+        <arc class="production" id="arc_45_output_43" source="reactionVertex_9942924.2" target="entityVertex_9942925_45">
+            <start x="-75.886529" y="165.308089" />
+            <end x="-84.813904" y="222.505631" />
+        </arc>
+        <arc class="production" id="arc_47_output_46" source="reactionVertex_9942917.2" target="entityVertex_443989_47">
+            <start x="-9.280012" y="707.350925" />
+            <end x="-734.747687" y="745.681933" />
+        </arc>
+        <arc class="consumption" id="arc_8_input_5" source="entityVertex_2025935_8" target="reactionVertex_9942683.1">
+            <start x="468.209909" y="55.175941" />
+            <end x="417.385840" y="-23.651762" />
+        </arc>
+        <arc class="production" id="arc_40_output_38" source="reactionVertex_9942910.2" target="entityVertex_9942935_40">
+            <start x="-145.522353" y="95.183358" />
+            <end x="-281.754282" y="123.541022" />
+        </arc>
+        <arc class="production" id="arc_37_output_36" source="reactionVertex_9942931.2" target="entityVertex_9943832_37">
+            <start x="-397.505570" y="-9.492211" />
+            <end x="-742.479007" y="434.618592" />
+        </arc>
+        <arc class="consumption" id="arc_57_input_20" source="entityVertex_8865393_57" target="reactionVertex_9942723.1">
+            <start x="-253.170111" y="-130.667204" />
+            <end x="-152.889197" y="-88.853363" />
+        </arc>
+        <arc class="production" id="arc_11_output_10" source="reactionVertex_9942499.2" target="entityVertex_9942502_11">
+            <start x="138.341522" y="-44.495068" />
+            <end x="-2.241927" y="-66.344928" />
+        </arc>
+        <arc class="production" id="arc_27_output_26" source="reactionVertex_9942709.2" target="entityVertex_629621_27">
+            <start x="-184.357612" y="-291.335725" />
+            <end x="-552.561104" y="-745.681933" />
+        </arc>
+        <arc class="production" id="arc_23_output_20" source="reactionVertex_9942723.2" target="entityVertex_9942697_23">
+            <start x="-151.889197" y="-105.519963" />
+            <end x="-102.209767" y="-140.094793" />
+        </arc>
+        <arc class="consumption" id="arc_56_input_26" source="entityVertex_8877362_56" target="reactionVertex_9942709.1">
+            <start x="-199.562637" y="-227.359747" />
+            <end x="-194.357612" y="-271.335725" />
+        </arc>
+        <arc class="stimulation" id="arc_11_activator_51" source="entityVertex_9942502_11" target="reactionVertex_9942928_51">
+            <start x="-31.432034" y="-66.344928" />
+            <end x="47.921607" y="-380.961205" />
+        </arc>
+        <arc class="stimulation" id="arc_15_activator_16" source="entityVertex_9942755_15" target="reactionVertex_9942734_16">
+            <start x="345.042704" y="44.139762" />
+            <end x="347.943514" y="96.164989" />
+        </arc>
+        <arc class="consumption" id="arc_57_input_65" source="entityVertex_8865393_57" target="reactionVertex_9945877.1">
+            <start x="-271.149043" y="-125.728905" />
+            <end x="-208.436381" y="-63.629070" />
+        </arc>
+        <arc class="stimulation" id="arc_45_activator_46" source="entityVertex_9942925_45" target="reactionVertex_9942917_46">
+            <start x="-81.289719" y="250.505631" />
+            <end x="-20.831254" y="484.350925" />
+        </arc>
+        <arc class="production" id="arc_15_output_13" source="reactionVertex_9942698.2" target="entityVertex_9942755_15">
+            <start x="202.236688" y="-41.349395" />
+            <end x="290.248666" y="-0.860238" />
+        </arc>
+        <arc class="production" id="arc_55_output_16" source="reactionVertex_9942734.2" target="entityVertex_447249_55">
+            <start x="358.278061" y="100.164989" />
+            <end x="777.752623" y="-276.830370" />
+        </arc>
+        <arc class="consumption" id="arc_49_input_51" source="entityVertex_9942932_49" target="reactionVertex_9942928.1">
+            <start x="62.390799" y="-622.749206" />
+            <end x="39.434949" y="-507.961205" />
+        </arc>
+        <arc class="consumption" id="arc_9_input_18" source="entityVertex_9942715_9" target="reactionVertex_9942511.1">
+            <start x="350.131061" y="-114.468847" />
+            <end x="368.407619" y="-30.796087" />
+        </arc>
+        <arc class="production" id="arc_30_output_28" source="reactionVertex_9942757.2" target="entityVertex_9942724_30">
+            <start x="-0.597819" y="12.342913" />
+            <end x="-6.781602" y="77.798045" />
+        </arc>
+        <arc class="production" id="arc_9_output_5" source="reactionVertex_9942683.2" target="entityVertex_9942715_9">
+            <start x="418.385840" y="-40.318422" />
+            <end x="360.940176" y="-114.468847" />
+        </arc>
+        <arc class="consumption" id="arc_6_input_5" source="entityVertex_8980965_6" target="reactionVertex_9942683.1">
+            <start x="334.781012" y="-51.220466" />
+            <end x="417.385840" y="-23.651762" />
+        </arc>
+        <arc class="stimulation" id="arc_23_activator_26" source="entityVertex_9942697_23" target="reactionVertex_9942709_26">
+            <start x="-95.772872" y="-181.094793" />
+            <end x="-175.294725" y="-275.335725" />
+        </arc>
+        <arc class="consumption" id="arc_6_input_10" source="entityVertex_8980965_6" target="reactionVertex_9942499.1">
+            <start x="247.956679" y="-78.403198" />
+            <end x="118.341522" y="-165.495068" />
+        </arc>
+        <arc class="consumption" id="arc_11_input_20" source="entityVertex_9942502_11" target="reactionVertex_9942723.1">
+            <start x="-74.323409" y="-66.344928" />
+            <end x="-152.889197" y="-88.853363" />
+        </arc>
+        <arc class="consumption" id="arc_11_input_43" source="entityVertex_9942502_11" target="reactionVertex_9942924.1">
+            <start x="-39.411346" y="-35.344928" />
+            <end x="-92.553129" y="106.308089" />
+        </arc>
+        <arc class="stimulation" id="arc_33_activator_36" source="entityVertex_9942937_33" target="reactionVertex_9942931_36">
+            <start x="-319.697657" y="46.710529" />
+            <end x="-384.505570" y="4.422838" />
+        </arc>
+        <arc class="consumption" id="arc_61_input_43" source="entityVertex_6785014_61" target="reactionVertex_9942924.1">
+            <start x="18.246308" y="192.256079" />
+            <end x="-92.553129" y="106.308089" />
+        </arc>
+        <arc class="production" id="arc_12_output_18" source="reactionVertex_9942511.2" target="entityVertex_9942500_12">
+            <start x="365.407619" y="-47.462757" />
+            <end x="243.573468" y="-15.110393" />
+        </arc>
+        <arc class="consumption" id="arc_32_input_36" source="entityVertex_9942921_32" target="reactionVertex_9942931.1">
+            <start x="-328.938479" y="-9.073940" />
+            <end x="-393.505570" y="10.507789" />
+        </arc>
+        <arc class="consumption" id="arc_54_input_13" source="entityVertex_8958138_54" target="reactionVertex_9942698.1">
+            <start x="208.638711" y="54.064703" />
+            <end x="185.570088" y="-41.349395" />
+        </arc>
+        <arc class="production" id="arc_60_output_41" source="reactionVertex_9942923.2" target="entityVertex_66220_60">
+            <start x="-175.586062" y="122.164423" />
+            <end x="-599.251073" y="541.932552" />
+        </arc>
+        <arc class="stimulation" id="arc_9_activator_10" source="entityVertex_9942715_9" target="reactionVertex_9942499_10">
+            <start x="286.270092" y="-134.392179" />
+            <end x="134.341522" y="-127.757102" />
+        </arc>
+        <arc class="consumption" id="arc_61_input_46" source="entityVertex_6785014_61" target="reactionVertex_9942917.1">
+            <start x="40.553083" y="233.602449" />
+            <end x="-29.280012" y="327.350925" />
+        </arc>
+        <arc class="stimulation" id="arc_40_activator_41" source="entityVertex_9942935_40" target="reactionVertex_9942923_41">
+            <start x="-245.337460" y="134.989443" />
+            <end x="-181.586062" y="132.407431" />
+        </arc>
+        <arc class="consumption" id="arc_11_input_31" source="entityVertex_9942502_11" target="reactionVertex_9942930.1">
+            <start x="-87.395096" y="-35.344928" />
+            <end x="-167.622512" y="-2.824539" />
+        </arc>
+        <arc class="production" id="arc_62_output_51" source="reactionVertex_9942928.2" target="entityVertex_8954250_62">
+            <start x="59.434949" y="-141.961205" />
+            <end x="-640.363623" y="-641.456671" />
+        </arc>
+        <arc class="consumption" id="arc_56_input_20" source="entityVertex_8877362_56" target="reactionVertex_9942723.1">
+            <start x="-195.215431" y="-177.192012" />
+            <end x="-152.889197" y="-88.853363" />
+        </arc>
+        <arc class="consumption" id="arc_66_input_65" source="entityVertex_9942247_66" target="reactionVertex_9945877.1">
+            <start x="-205.050450" y="-101.324399" />
+            <end x="-208.436381" y="-63.629070" />
+        </arc>
+        <arc class="inhibition" id="arc_8_inhibitor_16" source="entityVertex_2025935_8" target="reactionVertex_9942734_16">
+            <start x="418.570211" y="84.978904" />
+            <end x="354.278061" y="100.698018" />
+        </arc>
+        <arc class="consumption" id="arc_58_input_28" source="entityVertex_8865295_58" target="reactionVertex_9942757.1">
+            <start x="47.474053" y="39.302511" />
+            <end x="-17.264489" y="12.342913" />
+        </arc>
+    </map>
+</sbgn>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+  <map language="process description">
+    <glyph class="submap" id="entityVertex_9909649_1">
+      <label text="Regulation of PD-L1(CD274) transcription" />
+      <bbox h="59.0" w="179.0" x="0.0" y="1.0" />
+    </glyph>
+    <glyph id="entityVertex_9909615_3" class="submap">
+      <label text="Regulation of PD-L1(CD274) Post-translational modification" />
+      <bbox h="62.0" w="204.0" y="0.0" x="407.0" />
+    </glyph>
+    <glyph id="entityVertex_9909620_2" class="submap">
+      <label text="Regulation of PD-L1(CD274) translation" />
+      <bbox w="178.0" h="60.0" y="1.0" x="204.0" />
+    </glyph>
+  </map>
+</sbgn>

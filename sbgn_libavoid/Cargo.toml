@@ -1,0 +1,20 @@
+[package]
+name = "sbgn_libavoid"
+version = "0.1.0"
+edition = "2024"
+description = "Orthogonal SBGN arc routing over immutable glyph geometry"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+libavoid = { git = "https://github.com/boxabirds/libavoid-rust.git", rev = "f72fe0b6a541b8f32a1c160d38c889f0c697eecd" }
+thiserror = "2.0"
+xmltree = "0.10"
+
+[dev-dependencies]
+pretty_assertions = "1.4"
+
+[profile.release]
+lto = true
+codegen-units = 1
+

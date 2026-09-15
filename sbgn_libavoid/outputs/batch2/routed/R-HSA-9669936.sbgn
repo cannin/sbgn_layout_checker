@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+  <map language="process description">
+    <glyph class="compartment" compartmentOrder="10.0" id="compartmentVertex_7660_680">
+      <label text="nucleoplasm">
+        <bbox y="710.0" h="24.0" w="97.0" x="2591.0" />
+      </label>
+      <bbox x="2579.0" y="635.0" w="179.0" h="126.0" />
+    </glyph>
+    <glyph id="compartmentVertex_70101_668" compartmentOrder="10.0" class="compartment">
+      <label text="cytosol">
+        <bbox y="703.0" h="24.0" x="1158.0" w="56.0" />
+      </label>
+      <bbox y="116.0" w="3362.0" x="0.0" h="926.0" />
+    </glyph>
+    <glyph class="unspecified entity" id="entityVertex_9669831_188380">
+      <label text="sorafenib resistant KIT mutants" />
+      <bbox y="400.0" w="28.0" h="22.0" x="293.0" />
+    </glyph>
+    <glyph class="process" id="reactionVertex_9669874_188379">
+      <label text="Sorafenib-resistant KIT mutants do not bind sorafenib" />
+      <bbox h="12.0" w="12.0" y="425.0" x="372.0" />
+      <port id="reactionVertex_9669874.1" x="368.0" y="466.0" />
+      <port id="reactionVertex_9669874.2" x="388.0" y="433.0" />
+    </glyph>
+    <glyph class="simple chemical" id="entityVertex_9657029_188381">
+      <label text="sorafenib" />
+      <bbox h="36.0" x="288.0" y="522.0" w="122.0" />
+    </glyph>
+    <arc class="consumption" id="arc_188380_input_188379" target="reactionVertex_9669874.1" source="entityVertex_9669831_188380">
+      <start y="428.0" x="313.0" />
+      <next y="466" x="313" />
+      <end x="337.0" y="466.0" />
+    </arc>
+    <arc id="arc_188381_input_188379" class="consumption" source="entityVertex_9657029_188381" target="reactionVertex_9669874.1">
+      <start x="346.0" y="519.0" />
+      <next x="346" y="517.9999" />
+      <next x="337" y="517.9999" />
+      <end x="337.0" y="466.0" />
+    </arc>
+  </map>
+</sbgn>

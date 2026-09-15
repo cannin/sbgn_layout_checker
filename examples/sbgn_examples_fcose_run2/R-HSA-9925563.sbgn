@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="process" id="reactionVertex_9910607_17">
+            <label text="Primary multipotent pancreatic progenitor cell produces trunk bipotent pancreatic progenitor cell" />
+            <bbox w="12.000000" h="12.000000" x="255.075356" y="30.154437" />
+            <port id="reactionVertex_9910607.1" x="260.075356" y="46.154437" />
+            <port id="reactionVertex_9910607.2" x="261.075356" y="26.154437" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9937554_56">
+            <label text="(FN1 dimer, VTN)" />
+            <bbox w="78.000000" h="31.000000" x="337.118852" y="59.055489" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9853405_20">
+            <label text="pancreatic ductal cell" />
+            <bbox w="125.000000" h="62.000000" x="309.089664" y="-31.337401" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9938705_72">
+            <label text="(Laminin, Collagen)" />
+            <bbox w="67.000000" h="37.000000" x="187.526062" y="115.530367" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9909323_12">
+            <label text="primary multipotent pancreatic progenitor cell" />
+            <bbox w="135.000000" h="109.000000" x="174.933571" y="-152.530367" />
+        </glyph>
+        <glyph class="submap" id="entityVertex_9937080_21">
+            <label text="Developmental Lineage of Multipotent Pancreatic Progenitor Cells" />
+            <bbox w="464.000000" h="73.000000" x="-434.089664" y="-68.714378" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_9910609_18">
+            <label text="pancreatic trunk bipotent progenitor cell" />
+            <bbox w="143.000000" h="86.000000" x="61.219001" y="9.905604" />
+        </glyph>
+        <glyph class="process" id="reactionVertex_9853402_19">
+            <label text="Trunk bipotent pancreatic progenitor cell produces pancreatic ductal cell" />
+            <bbox w="12.000000" h="12.000000" x="276.235449" y="74.396197" />
+            <port id="reactionVertex_9853402.1" x="280.235449" y="90.396197" />
+            <port id="reactionVertex_9853402.2" x="282.235449" y="70.396197" />
+        </glyph>
+        <arc class="stimulation" id="arc_56_activator_19" source="entityVertex_9937554_56" target="reactionVertex_9853402_19">
+            <start x="337.588055" y="76.952581" />
+            <end x="288.235449" y="80.022922" />
+        </arc>
+        <arc class="inhibition" id="arc_72_inhibitor_19" source="entityVertex_9938705_72" target="reactionVertex_9853402_19">
+            <start x="238.887617" y="118.379341" />
+            <end x="276.235449" y="85.653642" />
+        </arc>
+        <arc class="production" id="arc_20_output_19" source="reactionVertex_9853402.2" target="entityVertex_9853405_20">
+            <start x="282.235449" y="70.396197" />
+            <end x="341.513406" y="26.837193" />
+        </arc>
+        <arc class="consumption" id="arc_18_input_19" source="entityVertex_9910609_18" target="reactionVertex_9853402.1">
+            <start x="201.094876" y="65.477420" />
+            <end x="280.235449" y="90.396197" />
+        </arc>
+        <arc class="inhibition" id="arc_72_inhibitor_17" source="entityVertex_9938705_72" target="reactionVertex_9910607_17">
+            <start x="228.409807" y="115.985332" />
+            <end x="258.620251" y="42.154437" />
+        </arc>
+        <arc class="stimulation" id="arc_56_activator_17" source="entityVertex_9937554_56" target="reactionVertex_9910607_17">
+            <start x="346.254504" y="64.586891" />
+            <end x="267.075356" y="38.157213" />
+        </arc>
+        <arc class="production" id="arc_18_output_17" source="reactionVertex_9910607.2" target="entityVertex_9910609_18">
+            <start x="261.075356" y="26.154437" />
+            <end x="202.592741" y="43.786720" />
+        </arc>
+        <arc class="consumption" id="arc_12_input_17" source="entityVertex_9909323_12" target="reactionVertex_9910607.1">
+            <start x="249.957861" y="-43.870027" />
+            <end x="260.075356" y="46.154437" />
+        </arc>
+    </map>
+</sbgn>

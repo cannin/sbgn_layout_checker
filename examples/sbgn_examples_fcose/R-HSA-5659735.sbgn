@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="compartment" id="compartmentVertex_70101_1" compartmentOrder="10.0">
+            <label text="cytosol">
+                <bbox w="56.0" h="24.0" x="-193.500000" y="-189.000000" />
+            </label>
+            <bbox w="186.137180" h="170.928291" x="-93.068590" y="-85.464145" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_375458_530">
+            <label text="neutral amino acids" />
+            <bbox w="79.000000" h="34.000000" x="13.068590" y="-84.464145" />
+        </glyph>
+        <glyph class="simple chemical" id="entityVertex_74113_528">
+            <label text="Na+" />
+            <bbox w="35.000000" h="31.000000" x="-40.148122" y="53.464145" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_5659731_154503">
+            <label text="SLC6A19 mutants" />
+            <bbox w="67.000000" h="25.000000" x="-92.068590" y="-15.076372" />
+        </glyph>
+        <glyph class="process" id="reactionVertex_5659734_154502">
+            <label text="Defective SLC6A19 does not cotransport neutral amino acids, Na+ from extracellular region to cytosol" />
+            <bbox w="12.000000" h="12.000000" x="36.207638" y="5.353606" />
+            <port id="reactionVertex_5659734.1" x="41.207638" y="21.353606" />
+            <port id="reactionVertex_5659734.2" x="44.207638" y="1.353606" />
+        </glyph>
+        <arc class="consumption" id="arc_530_input_154502" source="entityVertex_375458_530" target="reactionVertex_5659734.1">
+            <start x="50.337431" y="-50.491287" />
+            <end x="41.207638" y="21.353606" />
+        </arc>
+        <arc class="catalysis" id="arc_154503_catalyst_154502" source="entityVertex_5659731_154503" target="reactionVertex_5659734_154502">
+            <start x="-27.154800" y="1.765856" />
+            <end x="36.207638" y="10.524245" />
+        </arc>
+        <arc class="consumption" id="arc_528_input_154502" source="entityVertex_74113_528" target="reactionVertex_5659734.1">
+            <start x="-5.198810" y="53.464145" />
+            <end x="41.207638" y="21.353606" />
+        </arc>
+    </map>
+</sbgn>

@@ -1,0 +1,10 @@
+{
+  "name": "sbgn-layout-checker-fcose",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "cytoscape": "3.34.2",
+    "cytoscape-fcose": "2.2.0",
+    "seedrandom": "3.0.5"
+  }
+}

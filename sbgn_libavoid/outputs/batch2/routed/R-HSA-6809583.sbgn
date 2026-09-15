@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+  <map language="process description">
+    <glyph class="compartment" id="compartmentVertex_70101_195" compartmentOrder="10.0">
+      <label text="cytosol">
+        <bbox x="1218.0" h="24.0" w="56.0" y="273.0" />
+      </label>
+      <bbox w="519.0" h="549.0" y="184.0" x="1190.0" />
+    </glyph>
+    <glyph compartmentOrder="10.0" id="compartmentVertex_5460_4678" class="compartment">
+      <label text="mitochondrial matrix">
+        <bbox w="160.0" y="355.0" h="24.0" x="374.0" />
+      </label>
+      <bbox h="121.0" w="303.0" y="343.0" x="221.0" />
+    </glyph>
+    <glyph id="compartmentVertex_70101_87" compartmentOrder="10.0" class="compartment">
+      <label text="cytosol">
+        <bbox y="448.0" h="24.0" x="590.0" w="56.0" />
+      </label>
+      <bbox h="341.0" w="781.0" x="101.0" y="154.0" />
+    </glyph>
+    <glyph class="compartment" id="compartmentVertex_17941_218" compartmentOrder="10.0">
+      <label text="early endosome">
+        <bbox x="1316.0" h="24.0" w="124.0" y="479.0" />
+      </label>
+      <bbox h="310.0" y="217.0" w="251.0" x="1303.0" />
+    </glyph>
+    <glyph compartmentOrder="10.0" id="compartmentVertex_70101_220" class="compartment">
+      <label text="cytosol">
+        <bbox w="56.0" x="1844.0" y="479.0" h="24.0" />
+      </label>
+      <bbox h="396.0" w="383.0" x="1783.0" y="142.0" />
+    </glyph>
+    <glyph class="compartment" id="compartmentVertex_13977_236" compartmentOrder="10.0">
+      <label text="lipid droplet">
+        <bbox h="24.0" y="291.0" w="89.0" x="1990.0" />
+      </label>
+      <bbox x="1979.0" w="139.0" y="280.0" h="101.0" />
+    </glyph>
+    <glyph class="compartment" id="compartmentVertex_17957_125" compartmentOrder="10.0">
+      <label text="endoplasmic reticulum lumen">
+        <bbox y="261.0" x="486.0" h="24.0" w="226.0" />
+      </label>
+      <bbox x="480.0" h="64.0" y="243.0" w="208.0" />
+    </glyph>
+    <glyph class="compartment" id="compartmentVertex_17957_237" compartmentOrder="10.0">
+      <label text="endoplasmic reticulum lumen">
+        <bbox x="1829.0" y="162.0" w="226.0" h="24.0" />
+      </label>
+      <bbox x="1817.0" y="159.0" w="178.0" h="62.0" />
+    </glyph>
+    <glyph compartmentOrder="10.0" class="compartment" id="compartmentVertex_17957_5183">
+      <label text="endoplasmic reticulum lumen">
+        <bbox h="24.0" x="1393.0" w="226.0" y="653.0" />
+      </label>
+      <bbox h="84.0" y="628.0" w="199.0" x="1388.0" />
+    </glyph>
+    <glyph id="entityVertex_2471963_167413" class="unspecified entity">
+      <label text="RBP4 mutants" />
+      <bbox w="94.0" x="2254.0" h="22.0" y="451.0" />
+    </glyph>
+    <glyph class="process" id="reactionVertex_2466828_167412">
+      <label text="Defective RBP4 does not bind atROL" />
+      <bbox x="2230.0" w="12.0" h="12.0" y="393.0" />
+      <port y="409.0" id="reactionVertex_2466828.1" x="2235.0" />
+      <port x="2236.0" id="reactionVertex_2466828.2" y="389.0" />
+    </glyph>
+    <glyph id="entityVertex_2395761_1698" class="simple chemical">
+      <label text="atROL" />
+      <bbox w="51.0" h="30.0" y="484.0" x="2210.0" />
+    </glyph>
+    <arc id="arc_167413_input_167412" source="entityVertex_2471963_167413" target="reactionVertex_2466828.1" class="consumption">
+      <start x="2273.0" y="445.0" />
+      <next x="2235" y="445" />
+      <end x="2235.0" y="436.0" />
+    </arc>
+    <arc class="consumption" source="entityVertex_2395761_1698" target="reactionVertex_2466828.1" id="arc_1698_input_167412">
+      <start x="2235.0" y="481.0" />
+      <end y="436.0" x="2235.0" />
+    </arc>
+  </map>
+</sbgn>

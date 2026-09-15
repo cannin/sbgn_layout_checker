@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sbgn xmlns="http://sbgn.org/libsbgn/0.2">
+    <map language="process description">
+        <glyph class="compartment" id="compartmentVertex_70101_1" compartmentOrder="10.0">
+            <label text="cytosol">
+                <bbox w="56.0" h="24.0" x="-185.000000" y="79.500000" />
+            </label>
+            <bbox w="319.951895" h="196.299391" x="-159.975947" y="-98.149695" />
+        </glyph>
+        <glyph class="process" id="reactionVertex_880053_2">
+            <label text="2-oxoglutarate + NADPH + H+ =&gt; (R)-2-hydroxyglutarate + NADP+ [mutant IDH1]" />
+            <bbox w="12.000000" h="12.000000" x="21.823581" y="-7.863583" />
+            <port id="reactionVertex_880053.1" x="17.823581" y="-0.863583" />
+            <port id="reactionVertex_880053.2" x="37.823581" y="-1.863583" />
+        </glyph>
+        <glyph class="simple chemical" id="entityVertex_29364_5">
+            <label text="NADPH" />
+            <bbox w="67.000000" h="29.000000" x="-19.563551" y="68.149695" />
+        </glyph>
+        <glyph class="simple chemical" id="entityVertex_29366_7">
+            <label text="NADP+" />
+            <bbox w="60.000000" h="31.000000" x="-94.321237" y="20.529226" />
+        </glyph>
+        <glyph class="simple chemical" id="entityVertex_29406_3">
+            <label text="2OG" />
+            <bbox w="57.000000" h="28.000000" x="101.975947" y="-27.820163" />
+        </glyph>
+        <glyph class="simple chemical" id="entityVertex_70106_4">
+            <label text="H+" />
+            <bbox w="41.000000" h="27.000000" x="55.764356" y="-82.732039" />
+        </glyph>
+        <glyph class="simple chemical" id="entityVertex_880042_6">
+            <label text="2HG" />
+            <bbox w="55.000000" h="29.000000" x="-32.664113" y="-97.149695" />
+        </glyph>
+        <glyph class="unspecified entity" id="entityVertex_880004_8">
+            <label text="IDH1 R132mutant dimers" />
+            <bbox w="118.000000" h="36.000000" x="-158.975947" y="-51.706886" />
+        </glyph>
+        <arc class="consumption" id="arc_4_input_2" source="entityVertex_70106_4" target="reactionVertex_880053.1">
+            <start x="66.557284" y="-55.732039" />
+            <end x="17.823581" y="-0.863583" />
+        </arc>
+        <arc class="catalysis" id="arc_8_catalyst_2" source="entityVertex_880004_8" target="reactionVertex_880053_2">
+            <start x="-54.279543" y="-22.320894" />
+            <end x="21.823581" y="-3.358579" />
+        </arc>
+        <arc class="production" id="arc_7_output_2" source="reactionVertex_880053.2" target="entityVertex_29366_7">
+            <start x="37.823581" y="-1.863583" />
+            <end x="-34.321237" y="23.692295" />
+        </arc>
+        <arc class="consumption" id="arc_3_input_2" source="entityVertex_29406_3" target="reactionVertex_880053.1">
+            <start x="101.975947" y="-10.500585" />
+            <end x="17.823581" y="-0.863583" />
+        </arc>
+        <arc class="consumption" id="arc_5_input_2" source="entityVertex_29364_5" target="reactionVertex_880053.1">
+            <start x="16.319073" y="68.149695" />
+            <end x="17.823581" y="-0.863583" />
+        </arc>
+        <arc class="production" id="arc_6_output_2" source="reactionVertex_880053.2" target="entityVertex_880042_6">
+            <start x="37.823581" y="-1.863583" />
+            <end x="0.756725" y="-68.149695" />
+        </arc>
+    </map>
+</sbgn>
