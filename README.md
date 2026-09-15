@@ -57,6 +57,42 @@ uv sync --project python
 uv run --project python sbgn-layout-checker-py examples/sbgn_examples
 ```
 
+### Related tools
+
+The Go checker is self-contained and does not require either of the related
+repositories below.
+
+[`render_sbgn`](https://github.com/cannin/render_sbgn) is required by the
+legacy Python checker. `uv sync --project python` and
+`uv tool install ./python` install its pinned Python package automatically. To
+install and use the renderer independently from its source repository:
+
+```bash
+git clone https://github.com/cannin/render_sbgn.git
+uv sync --project render_sbgn/python
+uv run --project render_sbgn/python render_sbgn_py --help
+```
+
+[`fcose_sbgn`](https://github.com/cannin/fcose_sbgn) is optional. Install it
+when you want to add connected glyphs using its fCoSE-style layout adapters;
+it is not needed to check an existing layout. The Python adapter can be
+installed from its source repository with:
+
+```bash
+git clone https://github.com/cannin/fcose_sbgn.git
+uv sync --project fcose_sbgn/python
+uv run --project fcose_sbgn/python fcose_sbgn_py --help
+```
+
+This repository also contains whole-map fCoSE experiments that use
+`cytoscape-fcose` directly rather than `fcose_sbgn`. Install their locked Node
+dependencies and run the relayout tool from this repository's root:
+
+```bash
+npm ci
+uv run --project python python/tools/relayout_sbgn_fcose.py
+```
+
 ## Basic usage
 
 Both files and directories are accepted. Directories are searched recursively
