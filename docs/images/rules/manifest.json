@@ -1,0 +1,74 @@
+[
+  {
+    "rule": "4.2.1",
+    "kind": "node_overlap",
+    "source": "4_2_1_node_overlap_1.sbgn",
+    "image": "rule_4_2_1.png"
+  },
+  {
+    "rule": "4.2.3",
+    "kind": "node_border_edge_overlap",
+    "source": "4_2_3_node_border_edge_overlap_1.sbgn",
+    "image": "rule_4_2_3.png"
+  },
+  {
+    "rule": "4.2.4",
+    "kind": "edge_edge_overlap_or_touch",
+    "source": "4_2_4_edge_overlap_1.sbgn",
+    "image": "rule_4_2_4.png"
+  },
+  {
+    "rule": "4.2.5",
+    "kind": "invalid_node_orientation",
+    "source": "4_2_5_diagonal_orientation_1.sbgn",
+    "image": "rule_4_2_5.png"
+  },
+  {
+    "rule": "4.2.6",
+    "kind": "process_flow_not_centered",
+    "source": "4_2_6_process_attachment_1.sbgn",
+    "image": "rule_4_2_6.png"
+  },
+  {
+    "rule": "4.2.7",
+    "kind": "node_label_outside_node",
+    "source": "4_2_7_node_labels_1.sbgn",
+    "image": "rule_4_2_7.png"
+  },
+  {
+    "rule": "4.2.8",
+    "kind": "edge_label_overlaps_node",
+    "source": "4_2_8_edge_labels_1.sbgn",
+    "image": "rule_4_2_8.png"
+  },
+  {
+    "rule": "4.2.9",
+    "kind": "process_outside_participant_compartment",
+    "source": "4_2_9_compartments_1.sbgn",
+    "image": "rule_4_2_9.png"
+  },
+  {
+    "rule": "4.3.1",
+    "kind": "node_edge_crossing",
+    "source": "4_3_1_node_edge_crossing_1.sbgn",
+    "image": "rule_4_3_1.png"
+  },
+  {
+    "rule": "4.3.2",
+    "kind": "node_label_not_fully_inside",
+    "source": "4_3_2_label_quality_1.sbgn",
+    "image": "rule_4_3_2.png"
+  },
+  {
+    "rule": "4.3.3",
+    "kind": "edge_crossing",
+    "source": "4_3_3_edge_crossings_1.sbgn",
+    "image": "rule_4_3_3.png"
+  },
+  {
+    "rule": "4.3.5",
+    "kind": "unit_of_information_overlap",
+    "source": "4_3_5_unit_information_1.sbgn",
+    "image": "rule_4_3_5.png"
+  }
+]

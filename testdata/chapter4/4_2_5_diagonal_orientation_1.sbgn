@@ -2,9 +2,9 @@
 <sbgn xmlns:layout-test="https://github.com/cannin/sbgn_layout_checker/test" xmlns="http://sbgn.org/libsbgn/0.3">
   <map id="4_2_5_diagonal_orientation_1" language="process description">
     <extension>
-      <layout-test:expectedViolation section="4.2.5" scenario="4_2_5_diagonal_orientation" variant="1" checkerFinding="" />
+      <layout-test:expectedViolation section="4.2.5" scenario="4_2_5_diagonal_orientation" variant="1" checkerFinding="invalid_node_orientation" />
     </extension>
-    <glyph id="a" class="macromolecule" orientation="horizontal">
+    <glyph id="a" class="macromolecule" orientation="diagonal">
       <label text="A">
         <bbox x="15" y="26" w="10" h="8" />
       </label>

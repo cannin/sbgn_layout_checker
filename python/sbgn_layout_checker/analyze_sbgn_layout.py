@@ -21,6 +21,8 @@ from render_sbgn_py.renderer import (
     sbgnviz_manifest_rect,
 )
 
+from sbgn_layout_checker.version import __version__
+
 GEOMETRY_EPSILON = 1e-9
 PARSER_SOURCE = (
     "https://github.com/cannin/render_sbgn/tree/"
@@ -633,6 +635,12 @@ def main() -> None:
             "Count proper arc crossings and non-endpoint arc-node overlaps in "
             "SBGN-ML files."
         )
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=__version__,
+        help="Print version and exit.",
     )
     parser.add_argument(
         "input_paths",

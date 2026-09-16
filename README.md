@@ -200,6 +200,7 @@ The Python implementation depends on `render-sbgn-py`, pinned in
 ## Documentation
 
 - [Chapter 4 coverage and underspecified rules](docs/chapter4_rules.md)
+- [Annotated PNG examples for implemented rules](docs/rule_examples.md)
 - [Two valid negative-layout fixtures per guideline](testdata/chapter4/README.md)
 - [Go implementation](go/README.md)
 - [Python implementation](python/README.md)

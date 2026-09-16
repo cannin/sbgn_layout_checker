@@ -220,7 +220,7 @@ def apply_scenario(case: dict[str, Any], slug: str, variant: int) -> None:
             ]
         )
     elif slug == "4_2_5_diagonal_orientation":
-        glyphs["a"]["orientation"] = "horizontal"
+        glyphs["a"]["orientation"] = "diagonal"
         glyphs["a"]["bbox"] = (10, 20, 28, 12)
     elif slug == "4_2_6_process_attachment":
         glyphs["p"]["ports"] = [
@@ -377,7 +377,7 @@ def main() -> None:
         ("4_2_2_edge_z_order", "4.2.2", ""),
         ("4_2_3_node_border_edge_overlap", "4.2.3", "node_border_edge_overlap"),
         ("4_2_4_edge_overlap", "4.2.4", "edge_edge_overlap_or_touch"),
-        ("4_2_5_diagonal_orientation", "4.2.5", ""),
+        ("4_2_5_diagonal_orientation", "4.2.5", "invalid_node_orientation"),
         ("4_2_6_process_attachment", "4.2.6", "process_flow_not_centered"),
         ("4_2_7_node_labels", "4.2.7", "node_label_outside_node"),
         ("4_2_8_edge_labels", "4.2.8", "edge_label_overlaps_node"),

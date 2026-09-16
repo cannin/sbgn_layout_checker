@@ -1,6 +1,6 @@
 [project]
 name = "sbgn-layout-checker"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Check SBGN layouts for arc crossings and arc-node overlaps."
 requires-python = ">=3.14"
 dependencies = [
@@ -25,6 +25,9 @@ package = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["sbgn_layout_checker"]
+
+[tool.hatch.version]
+path = "sbgn_layout_checker/version.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true
