@@ -13,6 +13,14 @@ as its own installable package.
 go run ./go/cmd/sbgn_layout_checker examples/sbgn_examples
 ```
 
+Release 0.1.1 keeps the Go and Python package/CLI versions synchronized:
+
+```bash
+go run ./go/cmd/sbgn_layout_checker --version
+uv run --project python sbgn-layout-checker-py --version
+./scripts/check-versions.sh 0.1.1
+```
+
 Write JSON instead of Markdown:
 
 ```bash
@@ -200,6 +208,7 @@ The Python implementation depends on `render-sbgn-py`, pinned in
 ## Documentation
 
 - [Chapter 4 coverage and underspecified rules](docs/chapter4_rules.md)
+- [Annotated PNG gallery for implemented rules](docs/examples/chapter4/README.md)
 - [Two valid negative-layout fixtures per guideline](testdata/chapter4/README.md)
 - [Go implementation](go/README.md)
 - [Python implementation](python/README.md)
@@ -208,4 +217,14 @@ The Python implementation depends on `render-sbgn-py`, pinned in
 
 ```bash
 ./scripts/test-all.sh
+```
+
+Regenerate the fixtures and annotated rule PNGs with:
+
+```bash
+python3 scripts/generate_chapter4_fixtures.py
+make -C go current
+(cd sbgn_libavoid/vendor/render_sbgn/go && \
+  GOWORK=off go build -trimpath -o dist/render_sbgn_go .)
+./scripts/generate_rule_pngs.py
 ```

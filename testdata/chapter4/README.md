@@ -10,10 +10,11 @@ exercise bad layout geometry, not bad SBGN grammar. `cases.json` maps each file
 to its target guideline and, where the rule is machine-checkable, the expected
 Go finding kind.
 
-Three guidelines cannot be represented as a portable SBGN-ML violation:
-paint order (4.2.2), arbitrary glyph rotation (4.2.5), and compartment shading
-(4.4). Their files are valid representation probes and their intended visual
-violation is recorded by the filename/manifest. Other qualitative Section 4.4
+Two guidelines cannot be represented as a portable SBGN-ML violation: paint
+order (4.2.2) and compartment shading (4.4). Their files are valid
+representation probes and their intended visual violation is recorded by the
+filename/manifest. The 4.2.5 fixture uses a non-axis-aligned `orientation`
+value to exercise the checker's machine-readable orientation rule. Other qualitative Section 4.4
 fixtures exercise the relevant metric without asserting a universal failure
 threshold.
 

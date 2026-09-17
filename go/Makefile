@@ -7,6 +7,7 @@ DIST := dist
 all: test release current
 
 test:
+	@test -z "$$(gofmt -l .)" || { gofmt -l .; exit 1; }
 	go test ./...
 
 release: clean

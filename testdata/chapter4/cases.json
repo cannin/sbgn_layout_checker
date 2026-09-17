@@ -42,12 +42,12 @@
   {
     "path": "4_2_5_diagonal_orientation_1.sbgn",
     "section": "4.2.5",
-    "expected_kind": ""
+    "expected_kind": "invalid_node_orientation"
   },
   {
     "path": "4_2_5_diagonal_orientation_2.sbgn",
     "section": "4.2.5",
-    "expected_kind": ""
+    "expected_kind": "invalid_node_orientation"
   },
   {
     "path": "4_2_6_process_attachment_1.sbgn",

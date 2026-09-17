@@ -82,8 +82,8 @@ wheels = [
 
 [[package]]
 name = "render-sbgn-py"
-version = "0.0.7"
-source = { git = "https://github.com/cannin/render_sbgn.git?subdirectory=python&rev=f0b98cfc92ad1db353aaf4aa495e488740b88c1d#f0b98cfc92ad1db353aaf4aa495e488740b88c1d" }
+version = "0.0.9"
+source = { git = "https://github.com/cannin/render_sbgn.git?subdirectory=python&rev=f2985994e867f7c94d46c52284b555f02ea3af76#f2985994e867f7c94d46c52284b555f02ea3af76" }
 dependencies = [
     { name = "pycairo" },
 ]
@@ -115,10 +115,16 @@ wheels = [
 
 [[package]]
 name = "sbgn-layout-checker"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "render-sbgn-py" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+    { name = "ruff" },
 ]
 
 [package.dev-dependencies]
@@ -128,7 +134,12 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "render-sbgn-py", git = "https://github.com/cannin/render_sbgn.git?subdirectory=python&rev=f0b98cfc92ad1db353aaf4aa495e488740b88c1d" }]
+requires-dist = [
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=9.0.2" },
+    { name = "render-sbgn-py", git = "https://github.com/cannin/render_sbgn.git?subdirectory=python&rev=f2985994e867f7c94d46c52284b555f02ea3af76" },
+    { name = "ruff", marker = "extra == 'test'", specifier = ">=0.15.5" },
+]
+provides-extras = ["test"]
 
 [package.metadata.requires-dev]
 dev = [
