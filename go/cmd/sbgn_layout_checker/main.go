@@ -11,7 +11,7 @@ import (
 	"github.com/cannin/sbgn_layout_checker/go/checker"
 )
 
-const version = "0.1.0"
+const version = "0.1.2"
 
 // main runs the CLI and reports operational errors on standard error.
 func main() {

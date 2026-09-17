@@ -1,11 +1,14 @@
 [project]
 name = "sbgn-layout-checker"
-version = "0.1.0"
+version = "0.1.2"
 description = "Check SBGN layouts for arc crossings and arc-node overlaps."
 requires-python = ">=3.14"
 dependencies = [
-    "render-sbgn-py @ git+https://github.com/cannin/render_sbgn.git@f0b98cfc92ad1db353aaf4aa495e488740b88c1d#subdirectory=python",
+    "render-sbgn-py @ git+https://github.com/cannin/render_sbgn.git@f2985994e867f7c94d46c52284b555f02ea3af76#subdirectory=python",
 ]
+
+[project.optional-dependencies]
+test = ["pytest>=9.0.2", "ruff>=0.15.5"]
 
 [project.scripts]
 sbgn-layout-checker-py = "sbgn_layout_checker.analyze_sbgn_layout:main"

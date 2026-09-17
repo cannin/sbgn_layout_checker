@@ -1,0 +1,181 @@
+[
+  {
+    "rule": "4.2.1",
+    "severity": "error",
+    "kind": "node_overlap",
+    "source": "testdata/chapter4/4_2_1_node_overlap_1.sbgn",
+    "png": "rule_4_2_1_node_overlap.png",
+    "elements": [
+      "a",
+      "b"
+    ],
+    "overlay_count": 4,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 4.348,
+    "message": "nodes \"a\" and \"b\" overlap or touch without an allowed containment relationship"
+  },
+  {
+    "rule": "4.2.3",
+    "severity": "error",
+    "kind": "node_border_edge_overlap",
+    "source": "testdata/chapter4/4_2_3_node_border_edge_overlap_1.sbgn",
+    "png": "rule_4_2_3_node_border_edge_overlap.png",
+    "elements": [
+      "consume",
+      "c"
+    ],
+    "overlay_count": 3,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 5.315,
+    "message": "arc \"consume\" overlaps the border of node \"c\""
+  },
+  {
+    "rule": "4.2.4",
+    "severity": "error",
+    "kind": "edge_edge_overlap_or_touch",
+    "source": "testdata/chapter4/4_2_4_edge_overlap_1.sbgn",
+    "png": "rule_4_2_4_edge_edge_overlap_or_touch.png",
+    "elements": [
+      "consume",
+      "consume_second"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.572,
+    "message": "arcs \"consume\" and \"consume_second\" overlap or touch"
+  },
+  {
+    "rule": "4.2.5",
+    "severity": "error",
+    "kind": "invalid_node_orientation",
+    "source": "testdata/chapter4/4_2_5_diagonal_orientation_1.sbgn",
+    "png": "rule_4_2_5_invalid_node_orientation.png",
+    "elements": [
+      "a"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.678,
+    "message": "node \"a\" has non-axis-aligned orientation \"diagonal\""
+  },
+  {
+    "rule": "4.2.6",
+    "severity": "error",
+    "kind": "process_flow_not_centered",
+    "source": "testdata/chapter4/4_2_6_process_attachment_1.sbgn",
+    "png": "rule_4_2_6_process_flow_not_centered.png",
+    "elements": [
+      "consume",
+      "p",
+      "p.1"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 3.0,
+    "whitespace_gap_factor": 3.268,
+    "message": "consumption arc \"consume\" is not centered on a side of process \"p\""
+  },
+  {
+    "rule": "4.2.7",
+    "severity": "error",
+    "kind": "node_label_outside_node",
+    "source": "testdata/chapter4/4_2_7_node_labels_1.sbgn",
+    "png": "rule_4_2_7_node_label_outside_node.png",
+    "elements": [
+      "a"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 4.088,
+    "message": "label for node \"a\" has no area inside its node"
+  },
+  {
+    "rule": "4.2.8",
+    "severity": "error",
+    "kind": "edge_label_overlaps_node",
+    "source": "testdata/chapter4/4_2_8_edge_labels_1.sbgn",
+    "png": "rule_4_2_8_edge_label_overlaps_node.png",
+    "elements": [
+      "consume_label::label",
+      "a"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 3.271,
+    "message": "edge label \"consume_label::label\" overlaps or touches node \"a\""
+  },
+  {
+    "rule": "4.2.9",
+    "severity": "error",
+    "kind": "process_arc_outside_compartment",
+    "source": "testdata/chapter4/4_2_9_compartments_1.sbgn",
+    "png": "rule_4_2_9_process_arc_outside_compartment.png",
+    "elements": [
+      "consume",
+      "p",
+      "cell"
+    ],
+    "overlay_count": 4,
+    "edge_length_ratio": 3.0,
+    "whitespace_gap_factor": 4.833,
+    "message": "arc \"consume\" of process \"p\" leaves participant compartment \"cell\""
+  },
+  {
+    "rule": "4.3.1",
+    "severity": "warning",
+    "kind": "node_edge_crossing",
+    "source": "testdata/chapter4/4_2_1_node_overlap_1.sbgn",
+    "png": "rule_4_3_1_node_edge_crossing.png",
+    "elements": [
+      "consume",
+      "b"
+    ],
+    "overlay_count": 3,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 4.348,
+    "message": "arc \"consume\" crosses non-endpoint node \"b\""
+  },
+  {
+    "rule": "4.3.2",
+    "severity": "warning",
+    "kind": "node_label_not_fully_inside",
+    "source": "testdata/chapter4/4_2_5_diagonal_orientation_1.sbgn",
+    "png": "rule_4_3_2_node_label_not_fully_inside.png",
+    "elements": [
+      "a"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.678,
+    "message": "label for node \"a\" is not completely inside its node"
+  },
+  {
+    "rule": "4.3.3",
+    "severity": "warning",
+    "kind": "edge_crossing",
+    "source": "testdata/chapter4/4_3_3_edge_crossings_1.sbgn",
+    "png": "rule_4_3_3_edge_crossing.png",
+    "elements": [
+      "consume",
+      "stimulate"
+    ],
+    "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.828,
+    "message": "arcs \"consume\" and \"stimulate\" cross"
+  },
+  {
+    "rule": "4.3.5",
+    "severity": "warning",
+    "kind": "unit_of_information_overlap",
+    "source": "testdata/chapter4/4_3_5_unit_information_1.sbgn",
+    "png": "rule_4_3_5_unit_of_information_overlap.png",
+    "elements": [
+      "a_info",
+      "b"
+    ],
+    "overlay_count": 4,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 3.271,
+    "message": "unit of information \"a_info\" overlaps or touches element \"b\""
+  }
+]

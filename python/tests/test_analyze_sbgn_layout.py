@@ -1,17 +1,39 @@
 """Tests for SBGN layout intersection checks."""
 
+import sys
 from pathlib import Path
 
+import pytest
 from render_sbgn_py.renderer import PixelRect, Point
 
+from sbgn_layout_checker import __version__
 from sbgn_layout_checker.analyze_sbgn_layout import (
     ResolvedArc,
     analyze_sbgn_file,
     arc_pair_crossings,
     collect_sbgn_files,
+    main,
     proper_segment_intersection,
     segment_enters_rectangle_interior,
 )
+
+
+def test_version_matches_release() -> None:
+    """Keep the public Python version aligned with the coordinated release."""
+
+    assert __version__ == "0.1.2"
+
+
+def test_version_flag(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """Print the coordinated package version from the Python CLI."""
+
+    monkeypatch.setattr(sys, "argv", ["sbgn-layout-checker-py", "--version"])
+    with pytest.raises(SystemExit, match="0"):
+        main()
+    assert capsys.readouterr().out == "0.1.2\n"
 
 
 def make_arc(arc_id: str, points: tuple[Point, ...]) -> ResolvedArc:
