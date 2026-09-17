@@ -21,7 +21,7 @@ from sbgn_layout_checker.analyze_sbgn_layout import (
 def test_version_matches_release() -> None:
     """Keep the public Python version aligned with the coordinated release."""
 
-    assert __version__ == "0.1.1"
+    assert __version__ == "0.1.2"
 
 
 def test_version_flag(
@@ -33,7 +33,7 @@ def test_version_flag(
     monkeypatch.setattr(sys, "argv", ["sbgn-layout-checker-py", "--version"])
     with pytest.raises(SystemExit, match="0"):
         main()
-    assert capsys.readouterr().out == "0.1.1\n"
+    assert capsys.readouterr().out == "0.1.2\n"
 
 
 def make_arc(arc_id: str, points: tuple[Point, ...]) -> ResolvedArc:

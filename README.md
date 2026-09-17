@@ -13,12 +13,12 @@ as its own installable package.
 go run ./go/cmd/sbgn_layout_checker examples/sbgn_examples
 ```
 
-Release 0.1.1 keeps the Go and Python package/CLI versions synchronized:
+Release 0.1.2 keeps the Go and Python package/CLI versions synchronized:
 
 ```bash
 go run ./go/cmd/sbgn_layout_checker --version
 uv run --project python sbgn-layout-checker-py --version
-./scripts/check-versions.sh 0.1.1
+./scripts/check-versions.sh 0.1.2
 ```
 
 Write JSON instead of Markdown:

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-./scripts/check-versions.sh 0.1.1
+./scripts/check-versions.sh 0.1.2
 (cd go && go test ./...)
 (cd python && uv run --no-default-groups --extra test pytest)
 (cd python && uv run --no-default-groups --extra test ruff check . && uv run --no-default-groups --extra test ruff format --check .)

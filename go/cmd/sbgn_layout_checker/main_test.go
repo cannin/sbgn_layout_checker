@@ -8,8 +8,8 @@ import (
 )
 
 func TestVersionMatchesRelease(t *testing.T) {
-	if version != "0.1.1" {
-		t.Fatalf("version = %q, want 0.1.1", version)
+	if version != "0.1.2" {
+		t.Fatalf("version = %q, want 0.1.2", version)
 	}
 }
 
@@ -32,7 +32,7 @@ func TestVersionFlag(t *testing.T) {
 	if _, err := io.Copy(&output, reader); err != nil {
 		t.Fatal(err)
 	}
-	if output.String() != "0.1.1\n" {
-		t.Fatalf("output = %q, want 0.1.1\\n", output.String())
+	if output.String() != "0.1.2\n" {
+		t.Fatalf("output = %q, want 0.1.2\\n", output.String())
 	}
 }
