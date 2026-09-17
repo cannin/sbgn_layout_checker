@@ -228,3 +228,8 @@ make -C go current
   GOWORK=off go build -trimpath -o dist/render_sbgn_go .)
 ./scripts/generate_rule_pngs.py
 ```
+
+The PNG generator expands whitespace in temporary render-only copies until the
+total diagram edge length is approximately three times the canonical fixture.
+This makes overlaps and crossings easier to inspect while preserving the exact
+target finding and leaving the checked fixture files unchanged.

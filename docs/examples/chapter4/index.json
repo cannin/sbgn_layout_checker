@@ -10,6 +10,8 @@
       "b"
     ],
     "overlay_count": 4,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 4.348,
     "message": "nodes \"a\" and \"b\" overlap or touch without an allowed containment relationship"
   },
   {
@@ -23,6 +25,8 @@
       "c"
     ],
     "overlay_count": 3,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 5.315,
     "message": "arc \"consume\" overlaps the border of node \"c\""
   },
   {
@@ -36,6 +40,8 @@
       "consume_second"
     ],
     "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.572,
     "message": "arcs \"consume\" and \"consume_second\" overlap or touch"
   },
   {
@@ -48,6 +54,8 @@
       "a"
     ],
     "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.678,
     "message": "node \"a\" has non-axis-aligned orientation \"diagonal\""
   },
   {
@@ -62,6 +70,8 @@
       "p.1"
     ],
     "overlay_count": 2,
+    "edge_length_ratio": 3.0,
+    "whitespace_gap_factor": 3.268,
     "message": "consumption arc \"consume\" is not centered on a side of process \"p\""
   },
   {
@@ -74,6 +84,8 @@
       "a"
     ],
     "overlay_count": 2,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 4.088,
     "message": "label for node \"a\" has no area inside its node"
   },
   {
@@ -87,6 +99,8 @@
       "a"
     ],
     "overlay_count": 2,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 3.271,
     "message": "edge label \"consume_label::label\" overlaps or touches node \"a\""
   },
   {
@@ -101,6 +115,8 @@
       "cell"
     ],
     "overlay_count": 4,
+    "edge_length_ratio": 3.0,
+    "whitespace_gap_factor": 4.833,
     "message": "arc \"consume\" of process \"p\" leaves participant compartment \"cell\""
   },
   {
@@ -114,6 +130,8 @@
       "b"
     ],
     "overlay_count": 3,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 4.348,
     "message": "arc \"consume\" crosses non-endpoint node \"b\""
   },
   {
@@ -126,6 +144,8 @@
       "a"
     ],
     "overlay_count": 2,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.678,
     "message": "label for node \"a\" is not completely inside its node"
   },
   {
@@ -139,6 +159,8 @@
       "stimulate"
     ],
     "overlay_count": 4,
+    "edge_length_ratio": 3.001,
+    "whitespace_gap_factor": 3.828,
     "message": "arcs \"consume\" and \"stimulate\" cross"
   },
   {
@@ -152,6 +174,8 @@
       "b"
     ],
     "overlay_count": 4,
+    "edge_length_ratio": 2.999,
+    "whitespace_gap_factor": 3.271,
     "message": "unit of information \"a_info\" overlaps or touches element \"b\""
   }
 ]
