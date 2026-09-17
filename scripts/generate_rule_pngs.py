@@ -431,11 +431,76 @@ def element_bounds(element: dict[str, Any]) -> tuple[float, float, float, float]
     return None
 
 
+def source_geometry(path: Path) -> dict[str, dict[str, Any]]:
+    """Extract explicit SBGN geometry needed for truthful visual callouts.
+
+    Args:
+        path: Transformed SBGN-ML path used for rendering.
+
+    Returns:
+        Geometry indexed by glyph, label, port, and arc identifiers.
+    """
+
+    geometry: dict[str, dict[str, Any]] = {}
+    root = ET.parse(path).getroot()
+    for glyph in (element for element in root.iter() if local_name(element) == "glyph"):
+        glyph_id = glyph.attrib.get("id", "")
+        bbox = direct_child(glyph, "bbox")
+        if bbox is not None:
+            x, y, width, height = bbox_values(bbox)
+            geometry[glyph_id] = {
+                "kind": "glyph",
+                "class": glyph.attrib.get("class", ""),
+                "orientation": glyph.attrib.get("orientation", ""),
+                "bbox": (x, y, x + width, y + height),
+            }
+        label = direct_child(glyph, "label")
+        if label is not None:
+            label_bbox = direct_child(label, "bbox")
+            if label_bbox is not None:
+                x, y, width, height = bbox_values(label_bbox)
+                geometry[f"{glyph_id}::label"] = {
+                    "kind": "label",
+                    "owner": glyph_id,
+                    "text": label.attrib.get("text", ""),
+                    "bbox": (x, y, x + width, y + height),
+                }
+        for port in (child for child in glyph if local_name(child) == "port"):
+            geometry[port.attrib["id"]] = {
+                "kind": "port",
+                "owner": glyph_id,
+                "point": (float(port.attrib["x"]), float(port.attrib["y"])),
+            }
+    for arc in (element for element in root.iter() if local_name(element) == "arc"):
+        arc_id = arc.attrib["id"]
+        geometry[arc_id] = {
+            "kind": "arc",
+            "points": [
+                (float(child.attrib["x"]), float(child.attrib["y"]))
+                for child in arc
+                if local_name(child) in {"start", "next", "end"}
+            ],
+        }
+        for auxiliary in (child for child in arc if local_name(child) == "glyph"):
+            auxiliary_id = auxiliary.attrib["id"]
+            bbox = direct_child(auxiliary, "bbox")
+            if bbox is not None:
+                x, y, width, height = bbox_values(bbox)
+                geometry[f"{auxiliary_id}::label"] = {
+                    "kind": "edge_label",
+                    "owner": arc_id,
+                    "text": "1",
+                    "bbox": (x, y, x + width, y + height),
+                }
+    return geometry
+
+
 def annotate_png(
     base_path: Path,
     output_path: Path,
     manifest: dict[str, Any],
     finding: dict[str, Any],
+    source_path: Path,
 ) -> int:
     """Add a header, legend, and finding overlays to a rendered PNG.
 
@@ -444,6 +509,7 @@ def annotate_png(
         output_path: Destination annotated PNG.
         manifest: Renderer source-coordinate manifest.
         finding: Checker finding to display.
+        source_path: Transformed SBGN-ML input with explicit geometry.
 
     Returns:
         Number of visible overlay primitives drawn.
@@ -474,6 +540,7 @@ def annotate_png(
     by_owner: dict[str, list[dict[str, Any]]] = {}
     for element in manifest["elements"]:
         by_owner.setdefault(element.get("owner_id", ""), []).append(element)
+    geometry = source_geometry(source_path)
 
     def pixel_point(x: float, y: float) -> tuple[float, float]:
         """Convert one source point to the annotated image coordinate space."""
@@ -482,6 +549,43 @@ def annotate_png(
             diagram_x + (x + x_offset) * DIAGRAM_SCALE,
             HEADER_HEIGHT + (y + y_offset) * DIAGRAM_SCALE,
         )
+
+    def pixel_box(
+        box: tuple[float, float, float, float],
+    ) -> tuple[float, float, float, float]:
+        """Convert one source rectangle to annotated-image coordinates."""
+
+        x1, y1, x2, y2 = box
+        px1, py1 = pixel_point(x1, y1)
+        px2, py2 = pixel_point(x2, y2)
+        return px1, py1, px2, py2
+
+    def callout(
+        text: str, anchor: tuple[float, float], offset: tuple[float, float]
+    ) -> None:
+        """Draw a readable labeled leader to one geometry location."""
+
+        target = (anchor[0] + offset[0], anchor[1] + offset[1])
+        draw.line((anchor, target), fill=TEXT_COLOR, width=3)
+        draw.ellipse(
+            (anchor[0] - 5, anchor[1] - 5, anchor[0] + 5, anchor[1] + 5),
+            fill="white",
+            outline=TEXT_COLOR,
+            width=3,
+        )
+        text_box = draw.textbbox(target, text, font=bold_font)
+        draw.rectangle(
+            (text_box[0] - 5, text_box[1] - 3, text_box[2] + 5, text_box[3] + 3),
+            fill="white",
+            outline=TEXT_COLOR,
+            width=1,
+        )
+        draw.text(target, text, fill=TEXT_COLOR, font=bold_font)
+
+    def box_center(box: tuple[float, float, float, float]) -> tuple[float, float]:
+        """Return a rectangle center in pixel coordinates."""
+
+        return (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
 
     overlay_count = 0
     highlighted_elements = finding.get("elements", [])
@@ -498,26 +602,16 @@ def annotate_png(
             )
         if is_edge:
             edge_index += 1
-        edge_elements = [
-            element for element in owner_elements if element.get("kind") == "edge_line"
-        ]
-        if edge_elements:
-            pixel_points = [
-                pixel_point(
-                    float(edge_elements[0]["x1"]), float(edge_elements[0]["y1"])
-                )
-            ]
-            pixel_points.extend(
-                pixel_point(float(element["x2"]), float(element["y2"]))
-                for element in edge_elements
-            )
+        edge_points = geometry.get(identifier, {}).get("points", [])
+        if edge_points:
+            pixel_points = [pixel_point(float(x), float(y)) for x, y in edge_points]
             draw.line(pixel_points, fill="white", width=13, joint="curve")
             draw.line(pixel_points, fill=element_color, width=8, joint="curve")
             overlay_count += 1
         for element in owner_elements:
-            if element.get("kind") == "edge_line":
+            if element.get("kind") in {"edge_line", "edge_marker"}:
                 continue
-            bounds = element_bounds(element)
+            bounds = geometry.get(identifier, {}).get("bbox") or element_bounds(element)
             if bounds is None:
                 continue
             x1, y1, x2, y2 = bounds
@@ -537,25 +631,263 @@ def annotate_png(
             overlay_count += 1
 
     point = finding.get("point")
-    if point:
-        x = diagram_x + (float(point["x"]) + x_offset) * DIAGRAM_SCALE
-        y = HEADER_HEIGHT + (float(point["y"]) + y_offset) * DIAGRAM_SCALE
+    kind = finding["kind"]
+    if kind == "node_overlap":
+        first = pixel_box(geometry[highlighted_elements[0]]["bbox"])
+        second = pixel_box(geometry[highlighted_elements[1]]["bbox"])
+        overlap = (
+            max(first[0], second[0]),
+            max(first[1], second[1]),
+            min(first[2], second[2]),
+            min(first[3], second[3]),
+        )
+        draw.rectangle(overlap, fill="#ff000080", outline=TEXT_COLOR, width=2)
+        callout("overlap area", box_center(overlap), (-80, 75))
+    elif kind == "node_border_edge_overlap":
+        node = pixel_box(geometry[highlighted_elements[1]]["bbox"])
+        arc_points = geometry[highlighted_elements[0]]["points"]
+        arc_y = pixel_point(0.0, float(arc_points[0][1]))[1]
+        callout("arc lies on top border", ((node[0] + node[2]) / 2, arc_y), (-105, -65))
+    elif kind == "edge_edge_overlap_or_touch":
+        second_points = geometry[highlighted_elements[1]]["points"]
+        touch = pixel_point(float(second_points[0][0]), float(second_points[0][1]))
+        callout("touch point", touch, (-35, -70))
+    elif kind == "invalid_node_orientation":
+        node_box = pixel_box(geometry[highlighted_elements[0]]["bbox"])
+        center = box_center(node_box)
+        length = 55
+        draw.line(
+            (center[0] - length, center[1], center[0] + length, center[1]),
+            fill="#0077b6",
+            width=3,
+        )
+        draw.line(
+            (center[0], center[1] + length, center[0], center[1] - length),
+            fill="#0077b6",
+            width=3,
+        )
+        draw.line(
+            (center[0] - 38, center[1] + 38, center[0] + 38, center[1] - 38),
+            fill=ERROR_COLOR,
+            width=7,
+        )
+        callout('orientation="diagonal"', (center[0] + 24, center[1] - 24), (35, -55))
+        draw.text(
+            (center[0] + length + 5, center[1] - 8),
+            "valid axis",
+            fill="#0077b6",
+            font=text_font,
+        )
+    elif kind == "process_flow_not_centered":
+        process = pixel_box(geometry["p"]["bbox"])
+        port = pixel_point(*geometry["p.1"]["point"])
+        side_midpoint = (process[0], (process[1] + process[3]) / 2)
+        draw.line(
+            (process[0] - 55, side_midpoint[1], process[2] + 25, side_midpoint[1]),
+            fill="#0077b6",
+            width=3,
+        )
+        draw.ellipse(
+            (
+                side_midpoint[0] - 7,
+                side_midpoint[1] - 7,
+                side_midpoint[0] + 7,
+                side_midpoint[1] + 7,
+            ),
+            outline="#0077b6",
+            width=3,
+        )
+        draw.ellipse(
+            (port[0] - 7, port[1] - 7, port[0] + 7, port[1] + 7),
+            fill=ERROR_COLOR,
+            outline="white",
+            width=2,
+        )
+        draw.line((port, side_midpoint), fill=ERROR_COLOR, width=3)
+        callout("actual port", port, (-95, -65))
+        callout("required center", side_midpoint, (25, 55))
+        inset_left = image.width - 245
+        inset_top = HEADER_HEIGHT + 25
+        inset_right = image.width - 35
+        inset_bottom = inset_top + 170
+        draw.rounded_rectangle(
+            (inset_left, inset_top, inset_right, inset_bottom),
+            radius=10,
+            fill="white",
+            outline=TEXT_COLOR,
+            width=3,
+        )
+        draw.text(
+            (inset_left + 12, inset_top + 10),
+            "8x attachment detail",
+            fill=TEXT_COLOR,
+            font=bold_font,
+        )
+        process_left = inset_left + 120
+        process_top = inset_top + 50
+        process_bottom = inset_bottom - 20
+        center_y = (process_top + process_bottom) / 2
+        actual_y = center_y - 26
+        draw.rectangle(
+            (process_left, process_top, inset_right - 20, process_bottom),
+            fill="#f8f8f8",
+            outline=TEXT_COLOR,
+            width=3,
+        )
+        draw.line(
+            (inset_left + 20, center_y, inset_right - 10, center_y),
+            fill="#0077b6",
+            width=3,
+        )
+        draw.line(
+            (inset_left + 20, actual_y, process_left, actual_y),
+            fill=ERROR_COLOR,
+            width=7,
+        )
+        draw.ellipse(
+            (process_left - 7, center_y - 7, process_left + 7, center_y + 7),
+            fill="white",
+            outline="#0077b6",
+            width=3,
+        )
+        draw.ellipse(
+            (process_left - 7, actual_y - 7, process_left + 7, actual_y + 7),
+            fill=ERROR_COLOR,
+            outline="white",
+            width=2,
+        )
+        draw.text(
+            (inset_left + 12, actual_y - 10),
+            "actual",
+            fill=ERROR_COLOR,
+            font=text_font,
+        )
+        draw.text(
+            (inset_left + 12, center_y + 7),
+            "required center",
+            fill="#0077b6",
+            font=text_font,
+        )
+    elif kind in {"node_label_outside_node", "node_label_not_fully_inside"}:
+        node_id = highlighted_elements[0]
+        node_box = pixel_box(geometry[node_id]["bbox"])
+        label_box = pixel_box(geometry[f"{node_id}::label"]["bbox"])
+        draw.rectangle(node_box, outline="#0077b6", width=5)
+        draw.rectangle(label_box, outline="#d100d1", width=5)
+        node_center = box_center(node_box)
+        draw.rectangle(
+            (
+                node_center[0] - 12,
+                node_center[1] - 12,
+                node_center[0] + 12,
+                node_center[1] + 12,
+            ),
+            fill="white",
+        )
+        label_text = geometry[f"{node_id}::label"].get("text", node_id.upper())
+        label_center = box_center(label_box)
+        text_bounds = draw.textbbox((0, 0), label_text, font=bold_font)
+        draw.text(
+            (
+                label_center[0] - (text_bounds[2] - text_bounds[0]) / 2,
+                label_center[1] - (text_bounds[3] - text_bounds[1]) / 2,
+            ),
+            label_text,
+            fill="#d100d1",
+            font=bold_font,
+        )
+        callout("node boundary", (node_box[0], node_box[1]), (-110, -55))
+        callout("label layout box", (label_box[2], label_box[3]), (30, 55))
+        if label_box[0] < node_box[0]:
+            draw.rectangle(
+                (label_box[0], label_box[1], node_box[0], label_box[3]),
+                fill="#d6272866",
+            )
+        if label_box[2] > node_box[2]:
+            draw.rectangle(
+                (node_box[2], label_box[1], label_box[2], label_box[3]),
+                fill="#d6272866",
+            )
+    elif kind == "edge_label_overlaps_node":
+        label_box = pixel_box(geometry[highlighted_elements[0]]["bbox"])
+        node_box = pixel_box(geometry[highlighted_elements[1]]["bbox"])
+        draw.rectangle(node_box, outline="#0077b6", width=5)
+        draw.rectangle(label_box, outline="#d100d1", width=5)
+        overlap = (
+            max(label_box[0], node_box[0]),
+            max(label_box[1], node_box[1]),
+            min(label_box[2], node_box[2]),
+            min(label_box[3], node_box[3]),
+        )
+        draw.rectangle(overlap, fill="#ff000080")
+        callout("edge-label box", box_center(label_box), (-95, -65))
+        callout("node a", box_center(node_box), (45, 65))
+    elif kind == "process_arc_outside_compartment":
+        cell = pixel_box(geometry["cell"]["bbox"])
+        arc_points = geometry["consume"]["points"]
+        arc_y = pixel_point(0.0, float(arc_points[0][1]))[1]
+        boundary_x = cell[2]
+        draw.line(
+            (boundary_x, cell[1] - 20, boundary_x, cell[3] + 20),
+            fill=TEXT_COLOR,
+            width=3,
+        )
+        draw.text(
+            (boundary_x - 105, cell[1] + 10),
+            "INSIDE cell",
+            fill=TEXT_COLOR,
+            font=bold_font,
+        )
+        draw.text(
+            (boundary_x + 12, cell[1] + 10), "OUTSIDE", fill=TEXT_COLOR, font=bold_font
+        )
+        callout("arc exits cell here", (boundary_x, arc_y), (25, 60))
+    elif kind == "node_edge_crossing":
+        node = pixel_box(geometry[highlighted_elements[1]]["bbox"])
+        arc_y = pixel_point(
+            0.0, float(geometry[highlighted_elements[0]]["points"][0][1])
+        )[1]
+        for x in (node[0], node[2]):
+            draw.ellipse(
+                (x - 7, arc_y - 7, x + 7, arc_y + 7),
+                fill="white",
+                outline=WARNING_COLOR,
+                width=4,
+            )
+        callout("enters non-endpoint b", (node[0], arc_y), (-145, -65))
+        callout("exits b", (node[2], arc_y), (30, 55))
+    elif kind == "edge_crossing" and point:
+        cross = pixel_point(float(point["x"]), float(point["y"]))
         marker_radius = 15
         draw.ellipse(
             (
-                x - marker_radius,
-                y - marker_radius,
-                x + marker_radius,
-                y + marker_radius,
+                cross[0] - marker_radius,
+                cross[1] - marker_radius,
+                cross[0] + marker_radius,
+                cross[1] + marker_radius,
             ),
             fill="white",
             outline=TEXT_COLOR,
             width=3,
         )
-        draw.line((x - 8, y - 8, x + 8, y + 8), fill=TEXT_COLOR, width=3)
-        draw.line((x - 8, y + 8, x + 8, y - 8), fill=TEXT_COLOR, width=3)
-        draw.text((x + 20, y - 20), "crossing", fill=TEXT_COLOR, font=text_font)
-        overlay_count += 1
+        draw.line(
+            (cross[0] - 8, cross[1] - 8, cross[0] + 8, cross[1] + 8),
+            fill=TEXT_COLOR,
+            width=3,
+        )
+        draw.line(
+            (cross[0] - 8, cross[1] + 8, cross[0] + 8, cross[1] - 8),
+            fill=TEXT_COLOR,
+            width=3,
+        )
+        callout("consume-stimulate crossing", cross, (35, -75))
+    elif kind == "unit_of_information_overlap":
+        unit_box = pixel_box(geometry[highlighted_elements[0]]["bbox"])
+        node_box = pixel_box(geometry[highlighted_elements[1]]["bbox"])
+        draw.rectangle(node_box, outline="#0077b6", width=5)
+        draw.rectangle(unit_box, outline="#d100d1", width=5)
+        callout("unit a_info", box_center(unit_box), (-105, -65))
+        callout("node b", box_center(node_box), (45, 65))
 
     if overlay_count == 0:
         raise RuntimeError(
@@ -667,7 +999,13 @@ def generate(args: argparse.Namespace) -> None:
             )
             manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
             png_path = output / f"{stem}.png"
-            overlay_count = annotate_png(base_png_path, png_path, manifest, finding)
+            overlay_count = annotate_png(
+                base_png_path,
+                png_path,
+                manifest,
+                finding,
+                stretched_path,
+            )
         index.append(
             {
                 "rule": rule,

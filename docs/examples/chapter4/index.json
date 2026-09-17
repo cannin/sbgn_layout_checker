@@ -158,7 +158,7 @@
       "consume",
       "stimulate"
     ],
-    "overlay_count": 4,
+    "overlay_count": 2,
     "edge_length_ratio": 3.001,
     "whitespace_gap_factor": 3.828,
     "message": "arcs \"consume\" and \"stimulate\" cross"
